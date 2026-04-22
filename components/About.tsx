@@ -16,7 +16,7 @@ export default function About() {
         paddingRight: '32px',
       }}
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row" style={{ gap: '64px' }}>
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row" style={{ gap: '64px', alignItems: 'flex-start' }}>
 
         {/* Left: bio */}
         <div className="flex-1 flex flex-col">

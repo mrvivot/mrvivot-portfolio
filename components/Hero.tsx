@@ -1,6 +1,8 @@
+import Image from 'next/image'
+
 export default function Hero() {
   return (
-    <section style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '32px', paddingRight: '32px' }}>
+    <section style={{ paddingTop: '80px', paddingBottom: '40px', paddingLeft: '32px', paddingRight: '32px' }}>
       <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-16" style={{ alignItems: 'center', width: '100%' }}>
 
         {/* Left: text */}
@@ -34,13 +36,16 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right: photo placeholder */}
+        {/* Right: photo */}
         <div className="shrink-0 flex items-center justify-center">
-          <div
-            className="rounded-full bg-surface border border-border flex items-center justify-center"
-            style={{ width: 280, height: 280 }}
-          >
-            <span className="text-2xl font-semibold text-muted tracking-widest">MRV</span>
+          <div style={{ borderRadius: '50%', overflow: 'hidden', width: '280px', height: '280px', flexShrink: 0 }}>
+            <Image
+              src="/mrv_foto.png"
+              alt="Manuel Rojo Vivot - Product Designer"
+              width={280}
+              height={280}
+              style={{ objectFit: 'cover', objectPosition: 'center center' }}
+            />
           </div>
         </div>
 

@@ -43,7 +43,7 @@ function ProjectCard({ title, category }: { title: string; category: string }) {
       }} />
 
       {/* Content */}
-      <div style={{ padding: '16px' }}>
+      <div style={{ paddingLeft: '16px', paddingRight: '16px', paddingBottom: '16px' }}>
         <p className="font-semibold text-foreground" style={{ marginBottom: '6px' }}>
           {title}
         </p>

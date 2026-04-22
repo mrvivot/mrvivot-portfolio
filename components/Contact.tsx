@@ -28,7 +28,7 @@ const fieldFocusStyle = {
 
 function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div style={{ marginBottom: '16px' }}>
+    <div style={{ marginBottom: '20px' }}>
       <label
         className="text-sm font-medium text-foreground"
         style={{ display: 'block', marginBottom: '6px' }}
