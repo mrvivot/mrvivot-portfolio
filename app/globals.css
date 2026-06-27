@@ -1,33 +1,33 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  /* Colors */
-  --color-background: #FAF9F6;
-  --color-foreground: #1A1A1A;
-  --color-accent: #2DCC8F;
-  --color-accent-dark: #1FA873;
-  --color-muted: #6B7280;
-  --color-surface: #F0EEE9;
-  --color-border: #E2DDD6;
-
-  /* Font */
-  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui, sans-serif;
-
-  /* Border radius */
-  --radius-card: 16px;
+:root {
+  --background: #FAF9F6;
+  --background-nav: rgba(250, 249, 246, 0.88);
+  --surface: #F0EEE9;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --accent: #2DCC8F;
+  --accent-dark: #1F9D6F;
+  --border: #E2DED8;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.dark {
+  --background: #111110;
+  --background-nav: rgba(17, 17, 16, 0.88);
+  --surface: #1C1C1A;
+  --text-primary: #F5F4F0;
+  --text-secondary: #888884;
+  --accent: #2DCC8F;
+  --accent-dark: #2DCC8F;
+  --border: #2A2A28;
 }
 
-html {
-  scroll-padding-top: 64px;
-}
-
-body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+*,
+*::before,
+*::after {
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 }
