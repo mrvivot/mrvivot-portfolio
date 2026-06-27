@@ -24,12 +24,12 @@ const content = {
 
 interface Project {
   slug: string
-  client: string
-  category: string
+  client?: string
+  category?: string
   categoryEn?: string
   description?: string
   descriptionEn?: string
-  year: string | number
+  year?: string | number
   password?: boolean
   comingSoon?: boolean
   coverImage?: string

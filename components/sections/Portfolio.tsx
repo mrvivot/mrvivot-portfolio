@@ -8,8 +8,8 @@ import { useTheme } from '@/lib/ThemeContext'
 
 interface Project {
   slug: string
-  client: string
-  category: string
+  client?: string
+  category?: string
   categoryEn?: string
   description?: string
   descriptionEn?: string
