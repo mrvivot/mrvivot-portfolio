@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 import { useLanguage } from '@/lib/LanguageContext'
 
 const content = {
@@ -48,12 +49,16 @@ export default function About() {
           className="order-2 md:order-1 w-full max-w-[280px] mx-auto md:max-w-none md:mx-0"
         >
           <div
-            className="bg-surface flex items-center justify-center w-full"
-            style={{ aspectRatio: '1/1', borderRadius: '16px' }}
+            className="w-full"
+            style={{ aspectRatio: '1/1', borderRadius: '16px', position: 'relative', overflow: 'hidden' }}
           >
-            <span className="text-text-secondary" style={{ fontSize: '14px' }}>
-              Foto
-            </span>
+            <Image
+              src="/images/about-photo.jpg"
+              alt="Manuel Rojo Vivot"
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </motion.div>
 
