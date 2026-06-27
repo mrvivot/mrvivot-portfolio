@@ -69,7 +69,7 @@ export default function Portfolio({ projects }: Props) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
+            transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' as const }}
           >
             <Link
               href={`/work/${project.slug}`}
@@ -80,7 +80,7 @@ export default function Portfolio({ projects }: Props) {
               {project.coverImage ? (
                 <Image
                   src={project.coverImage}
-                  alt={project.client}
+                  alt={project.client ?? ''}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />

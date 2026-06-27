@@ -61,7 +61,7 @@ const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: 'easeOut' },
+  transition: { duration: 0.55, ease: 'easeOut' as const },
 }
 
 export default function ProjectClient({
@@ -392,7 +392,7 @@ export default function ProjectClient({
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06, ease: 'easeOut' }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: 'easeOut' as const }}
               style={{ marginBottom: isMobile ? '64px' : '96px' }}
             >
               <p className="text-text-secondary" style={{ fontSize: '12px', fontWeight: 600, marginBottom: '8px' }}>

@@ -51,7 +51,7 @@ export default function WorkPageClient({ projects }: Props) {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: 'easeOut' as const }}
         style={{ marginBottom: '64px' }}
       >
         <h1
@@ -76,7 +76,7 @@ export default function WorkPageClient({ projects }: Props) {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' }}
+            transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' as const }}
           >
             <Link
               href={`/work/${project.slug}`}
@@ -87,7 +87,7 @@ export default function WorkPageClient({ projects }: Props) {
                 {project.coverImage ? (
                   <Image
                     src={project.coverImage}
-                    alt={project.client}
+                    alt={project.client ?? ''}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />

@@ -30,7 +30,7 @@ export default function About() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: 'easeOut' as const }}
         className="text-text-primary uppercase"
         style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.1em', marginBottom: '32px' }}
       >
@@ -44,7 +44,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut' as const }}
           className="order-2 md:order-1 w-full max-w-[280px] mx-auto md:max-w-none md:mx-0"
         >
           <div
@@ -62,7 +62,7 @@ export default function About() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
+          transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' as const }}
           className="order-1 md:order-2 flex flex-col"
           style={{ gap: '20px' }}
         >
