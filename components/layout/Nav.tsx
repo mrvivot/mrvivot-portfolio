@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Home, LayoutGrid, Mail, Sun, Moon, Globe } from 'lucide-react'
 import { useTheme } from '@/lib/ThemeContext'
 import { useLanguage } from '@/lib/LanguageContext'
@@ -27,7 +28,15 @@ const mobileHrefs = ['/', '/work', '#contact']
 export default function Nav() {
   const { dark, toggleDark } = useTheme()
   const { lang, toggleLang } = useLanguage()
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
+
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
@@ -48,6 +57,7 @@ export default function Nav() {
       >
         <Link
           href="/"
+          onClick={handleLogoClick}
           className="text-lg font-semibold text-text-primary hover:text-accent transition-colors"
         >
           mrvivot
@@ -104,6 +114,7 @@ export default function Nav() {
       >
         <Link
           href="/"
+          onClick={handleLogoClick}
           className="text-text-primary hover:text-accent transition-colors"
           style={{ fontSize: '16px', fontWeight: 600 }}
         >
