@@ -31,6 +31,16 @@ export default function Footer() {
           >
             mrvivot@gmail.com
           </a>
+          <span className="text-text-secondary">·</span>
+          <a
+            href={lang === 'es' ? '/cv_manuel_rojo_vivot_es.pdf' : '/cv_manuel_rojo_vivot_en.pdf'}
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-text-secondary hover:text-accent transition-colors"
+          >
+            CV ↓
+          </a>
         </div>
       </div>
     </footer>

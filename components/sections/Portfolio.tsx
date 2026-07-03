@@ -128,6 +128,17 @@ export default function Portfolio({ projects }: Props) {
         ))}
       </div>
 
+      <Link
+        href="/work"
+        className="flex md:hidden items-center gap-1.5 group text-text-primary hover:underline underline-offset-4 transition-all duration-200"
+        style={{ fontSize: '15px', fontWeight: 500, marginTop: '32px' }}
+      >
+        <span>{t.viewAll}</span>
+        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
+          →
+        </span>
+      </Link>
+
     </section>
   )
 }

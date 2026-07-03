@@ -9,12 +9,14 @@ const content = {
     subtitle: 'Escribime o conectemos en LinkedIn.',
     primaryLabel: 'mrvivot@gmail.com',
     secondaryLabel: 'LinkedIn',
+    cvLabel: 'Descargar CV ↓',
   },
   en: {
     title: "Let's work together",
     subtitle: 'Email me or connect on LinkedIn.',
     primaryLabel: 'mrvivot@gmail.com',
     secondaryLabel: 'LinkedIn',
+    cvLabel: 'Download CV ↓',
   },
 }
 
@@ -91,6 +93,18 @@ export default function Contact() {
           {t.secondaryLabel}
         </a>
       </motion.div>
+
+      <motion.a
+        href={lang === 'es' ? '/cv_manuel_rojo_vivot_es.pdf' : '/cv_manuel_rojo_vivot_en.pdf'}
+        download
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-text-secondary hover:text-text-primary transition-colors"
+        style={{ fontSize: '14px', marginTop: '16px' }}
+        {...fadeUp(0.3)}
+      >
+        {t.cvLabel}
+      </motion.a>
     </section>
   )
 }
