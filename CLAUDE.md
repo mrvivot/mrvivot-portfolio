@@ -21,12 +21,29 @@ Deploy en Vercel, dominio mrvivot.com.
   navigation bar fija
 - Bottom nav mobile: Inicio, Work, About, Contacto
 
-## Estado actual
-- Setup completo, Nav y Hero terminados y aprobados
-- Hero: sin foto, headline "Diseño experiencias digitales que
-  conectan usuarios con negocios reales", fondo con blobs animados
-  en verde acento, pills de rol (UX/UI · Product Design · Front-end)
-- Próximo: sección Portfolio (cards de proyectos)
+## Estado actual del sitio (julio 2026)
+- Sitio en producción: www.mrvivot.com
+- Deploy: Vercel conectado a GitHub (rama main)
+- Analytics: Microsoft Clarity instalado (ID: xfnpppw2mh)
+
+## Páginas existentes
+- / (home): Hero, Portfolio (3 cards), About, Contacto, Footer
+- /work: grilla de 6 proyectos (2 columnas desktop, 1 mobile)
+- /work/[slug]: template dinámico desde MDX (ProjectClient.tsx)
+- /work/gsk: protegido con password
+
+## Proyectos en content/projects/
+- carbon-los-lenos.mdx (order: 1)
+- portfolio-ia.mdx (order: 2)
+- gsk.mdx (order: 3, password: true)
+- vgo-alta.mdx (order: 4)
+- vgo-admin.mdx (order: 5)
+- informental.mdx (order: 6)
+
+## Pendiente próxima sesión
+- Agregar sección Blog (/blog)
+- Agregar sección Juegos (/games) — diferido
+- Página /about extendida — diferido
 
 ## Reglas de contraste (obligatorias)
 - Todo título, label de sección o texto que cumpla función de
