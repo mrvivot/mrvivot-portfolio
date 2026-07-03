@@ -99,7 +99,7 @@ export default function Contact() {
         download
         target="_blank"
         rel="noopener noreferrer"
-        className="text-text-secondary hover:text-text-primary transition-colors"
+        className="md:hidden text-text-secondary hover:text-text-primary transition-colors"
         style={{ fontSize: '14px', marginTop: '16px' }}
         {...fadeUp(0.3)}
       >
