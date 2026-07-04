@@ -10,12 +10,14 @@ import { useLanguage } from '@/lib/LanguageContext'
 const labels = {
   es: {
     work: 'Proyectos',
+    blog: 'Blog',
     cv: 'CV ↓',
     contact: 'Hablemos',
     mobileLinks: ['Inicio', 'Proyectos', 'Contacto'],
   },
   en: {
     work: 'Work',
+    blog: 'Blog',
     cv: 'CV ↓',
     contact: "Let's Talk",
     mobileLinks: ['Home', 'Work', 'Contact'],
@@ -69,6 +71,12 @@ export default function Nav() {
             className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
           >
             {t.work}
+          </Link>
+          <Link
+            href="/blog"
+            className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+          >
+            {t.blog}
           </Link>
           <a
             href={lang === 'es' ? '/cv_manuel_rojo_vivot_es.pdf' : '/cv_manuel_rojo_vivot_en.pdf'}
