@@ -1,6 +1,8 @@
 'use client'
 
 import Link from "next/link"
+import Image from "next/image"
+import { useState } from "react"
 import { useLanguage } from "@/lib/LanguageContext"
 import type { BlogPostMeta } from "@/lib/blog"
 
@@ -11,6 +13,7 @@ interface Props {
 
 export default function BlogPostClient({ post, children }: Props) {
   const { lang } = useLanguage()
+  const [imgError, setImgError] = useState(false)
 
   const title = post.title[lang]
   const description = post.description[lang]
@@ -84,27 +87,40 @@ export default function BlogPostClient({ post, children }: Props) {
         )}
       </div>
 
-      {/* MDX body */}
-      <div className="mdx-prose" style={{ maxWidth: "680px" }}>
-        {children}
-      </div>
-
-      {/* Back link */}
+      {/* Cover image */}
       <div
         style={{
           maxWidth: "680px",
-          marginTop: "64px",
-          paddingTop: "32px",
-          borderTop: "1px solid var(--border)",
+          marginBottom: "48px",
+          borderRadius: "16px",
+          overflow: "hidden",
+          position: "relative",
+          aspectRatio: "16/9",
+          backgroundColor: "var(--surface)",
         }}
       >
-        <Link
-          href="/blog"
-          className="text-text-secondary hover:text-text-primary transition-colors"
-          style={{ fontSize: "14px" }}
-        >
-          ← Blog
-        </Link>
+        {!imgError && (
+          <Image
+            src={post.coverImage}
+            alt={title}
+            fill
+            className="object-cover"
+            onError={() => setImgError(true)}
+          />
+        )}
+      </div>
+
+      {/* MDX body */}
+      <div className="mdx-prose" style={{ maxWidth: "680px" }}>
+        {children}
+        <div className="mt-10 border-t border-border pt-6">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+          >
+            {lang === "es" ? "Ver más artículos" : "Read more articles"} →
+          </Link>
+        </div>
       </div>
     </main>
   )
