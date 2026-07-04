@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
-import { Home, LayoutGrid, Mail, Sun, Moon, Globe } from 'lucide-react'
+import { Home, LayoutGrid, BookOpen, Mail, Sun, Moon, Globe } from 'lucide-react'
 import { useTheme } from '@/lib/ThemeContext'
 import { useLanguage } from '@/lib/LanguageContext'
 
@@ -13,19 +13,19 @@ const labels = {
     blog: 'Blog',
     cv: 'CV ↓',
     contact: 'Hablemos',
-    mobileLinks: ['Inicio', 'Proyectos', 'Contacto'],
+    mobileLinks: ['Inicio', 'Proyectos', 'Blog', 'Contacto'],
   },
   en: {
     work: 'Work',
     blog: 'Blog',
     cv: 'CV ↓',
     contact: "Let's Talk",
-    mobileLinks: ['Home', 'Work', 'Contact'],
+    mobileLinks: ['Home', 'Work', 'Blog', 'Contact'],
   },
 }
 
-const mobileIcons = [Home, LayoutGrid, Mail]
-const mobileHrefs = ['/', '/work', '#contact']
+const mobileIcons = [Home, LayoutGrid, BookOpen, Mail]
+const mobileHrefs = ['/', '/work', '/blog', '#contact']
 
 export default function Nav() {
   const { dark, toggleDark } = useTheme()
