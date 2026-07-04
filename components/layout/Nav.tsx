@@ -25,7 +25,7 @@ const labels = {
 }
 
 const mobileIcons = [Home, LayoutGrid, BookOpen, Mail]
-const mobileHrefs = ['/', '/work', '/blog', '#contact']
+const mobileHrefs = ['/', '/work', '/blog', '/#contact']
 
 export default function Nav() {
   const { dark, toggleDark } = useTheme()
@@ -88,7 +88,7 @@ export default function Nav() {
             {t.cv}
           </a>
           <Link
-            href="#contact"
+            href="/#contact"
             className="px-4 py-1.5 rounded-full text-sm font-medium text-accent hover:bg-accent hover:text-white transition-colors"
             style={{ border: '1.5px solid var(--accent)' }}
           >
