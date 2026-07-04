@@ -5,6 +5,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { useLanguage } from "@/lib/LanguageContext"
 import type { BlogPostMeta } from "@/lib/blog"
+import { CATEGORY_LABELS } from "@/lib/categories"
 
 interface Props {
   post: BlogPostMeta
@@ -43,7 +44,7 @@ export default function BlogPostClient({ post, children }: Props) {
               className="rounded-md px-2 py-0.5 text-[11px] text-accent"
               style={{ backgroundColor: "rgba(45,204,143,0.15)" }}
             >
-              {cat}
+              {CATEGORY_LABELS[cat][lang]}
             </span>
           ))}
         </div>
