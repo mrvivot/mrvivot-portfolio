@@ -16,9 +16,6 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "mrvivot — Portfolio",
   description: "Portfolio profesional",
-  icons: {
-    icon: '/favicon.png',
-  },
 };
 
 export default function RootLayout({
