@@ -1,8 +1,6 @@
 'use client'
 
 import Link from "next/link"
-import Image from "next/image"
-import { useState } from "react"
 import { useLanguage } from "@/lib/LanguageContext"
 import type { BlogPostMeta } from "@/lib/blog"
 import { CATEGORY_LABELS } from "@/lib/categories"
@@ -14,7 +12,6 @@ interface Props {
 
 export default function BlogPostClient({ post, children }: Props) {
   const { lang } = useLanguage()
-  const [imgError, setImgError] = useState(false)
 
   const title = post.title[lang]
   const description = post.description[lang]
@@ -85,29 +82,6 @@ export default function BlogPostClient({ post, children }: Props) {
           >
             This article is available in Spanish only.
           </p>
-        )}
-      </div>
-
-      {/* Cover image */}
-      <div
-        style={{
-          maxWidth: "680px",
-          marginBottom: "48px",
-          borderRadius: "16px",
-          overflow: "hidden",
-          position: "relative",
-          aspectRatio: "16/9",
-          backgroundColor: "var(--surface)",
-        }}
-      >
-        {!imgError && (
-          <Image
-            src={post.coverImage}
-            alt={title}
-            fill
-            className="object-cover"
-            onError={() => setImgError(true)}
-          />
         )}
       </div>
 

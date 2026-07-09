@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import type { BlogPostMeta } from "@/lib/blog";
 import { CATEGORY_LABELS } from "@/lib/categories";
@@ -12,6 +14,7 @@ interface BlogCardProps {
 
 export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
   const { lang } = useLanguage();
+  const [imgError, setImgError] = useState(false);
 
   const title = post.title[lang];
   const description = post.description[lang];
@@ -34,10 +37,17 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
           isFeatured ? "h-40 md:h-56" : "h-28"
         }`}
       >
-        {/* placeholder: reemplazar por next/image cuando haya coverImage real */}
-        <div className="flex h-full w-full items-center justify-center text-text-secondary opacity-40 transition-transform duration-200 group-hover:scale-[1.03]">
-          <span className="text-xs">imagen</span>
-        </div>
+        {!imgError ? (
+          <Image
+            src={post.coverImage}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            onError={() => setImgError(true)}
+          />
+        ) : (
+          <div className="h-full w-full" style={{ backgroundColor: "var(--surface)" }} />
+        )}
       </div>
 
       <div className={isFeatured ? "p-5" : "p-3.5"}>
