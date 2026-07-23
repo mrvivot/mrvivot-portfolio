@@ -30,8 +30,8 @@ export default function Hero() {
   const { dark } = useTheme()
   const t = content[lang]
 
-  const blobOpacity1 = dark ? 0.22 : 0.18
-  const blobOpacity2 = dark ? 0.17 : 0.13
+  const blobOpacity1 = dark ? 0.32 : 0.26
+  const blobOpacity2 = dark ? 0.24 : 0.19
 
   const [isMobile, setIsMobile] = useState(false)
 
@@ -44,8 +44,8 @@ export default function Hero() {
 
   return (
     <section
-      className="relative min-h-screen flex flex-col overflow-hidden px-6 md:px-12"
-      style={{ paddingTop: isMobile ? '12vh' : '25vh' }}
+      className="relative min-h-screen flex flex-col justify-normal overflow-hidden px-6 md:px-12"
+      style={{ paddingTop: isMobile ? '18vh' : '25vh' }}
     >
 
       {/* ── Blobs de fondo ── */}
@@ -55,7 +55,7 @@ export default function Hero() {
           width: isMobile ? 280 : 560,
           height: isMobile ? 280 : 560,
           backgroundColor: `rgba(45, 204, 143, ${blobOpacity1})`,
-          filter: 'blur(120px)',
+          filter: isMobile ? 'blur(80px)' : 'blur(120px)',
         }}
         animate={{ x: [0, 60, 0], y: [0, -60, 0] }}
         transition={{ duration: 6, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
@@ -66,7 +66,7 @@ export default function Hero() {
           width: isMobile ? 180 : 360,
           height: isMobile ? 180 : 360,
           backgroundColor: `rgba(45, 204, 143, ${blobOpacity2})`,
-          filter: 'blur(120px)',
+          filter: isMobile ? 'blur(80px)' : 'blur(120px)',
         }}
         animate={{ x: [0, -60, 0], y: [0, 60, 0] }}
         transition={{ duration: 8, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
@@ -83,7 +83,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex flex-wrap gap-2 mt-2"
+          className="flex flex-wrap gap-2 mt-3 md:mt-2"
           {...fadeUp(0.2)}
         >
           {t.pills.map((pill) => (
@@ -105,7 +105,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.h1
-          className="font-bold text-text-primary mt-6"
+          className="font-bold text-text-primary mt-8 md:mt-6"
           style={{
             fontSize: 'clamp(36px, 5vw, 56px)',
             lineHeight: 1.1,
@@ -119,14 +119,14 @@ export default function Hero() {
         </motion.h1>
 
         <motion.div
-          className="mt-10 text-text-secondary"
+          className="mt-14 md:mt-10 text-text-secondary"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
           <motion.button
             onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-text-secondary hover:text-accent transition-colors cursor-pointer"
+            className="text-text-primary hover:text-accent transition-colors cursor-pointer"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             aria-label="Ir a proyectos"
