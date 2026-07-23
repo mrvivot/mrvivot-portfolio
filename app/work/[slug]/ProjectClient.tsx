@@ -22,7 +22,7 @@ const ui = {
     comingSoonText: 'Próximamente',
     overviewLabels: { client: 'Cliente', type: 'Tipo', year: 'Año', role: 'Rol' },
     nextLabel: 'Siguiente proyecto',
-    nextCta: 'Ver caso →',
+    nextCta: 'Ver proyecto →',
   },
   en: {
     passwordTitle: 'Protected content',
@@ -34,7 +34,7 @@ const ui = {
     comingSoonText: 'Coming soon',
     overviewLabels: { client: 'Client', type: 'Type', year: 'Year', role: 'Role' },
     nextLabel: 'Next project',
-    nextCta: 'View case →',
+    nextCta: 'View project →',
   },
 }
 

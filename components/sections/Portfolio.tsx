@@ -21,8 +21,8 @@ interface Props {
 }
 
 const labels = {
-  es: { title: 'Proyectos seleccionados', cta: 'Ver caso →', viewAll: 'Ver todos los proyectos' },
-  en: { title: 'Selected work', cta: 'View case →', viewAll: 'View all projects' },
+  es: { title: 'Proyectos seleccionados', cta: 'Ver proyecto →', viewAll: 'Ver todos los proyectos' },
+  en: { title: 'Selected work', cta: 'View project →', viewAll: 'View all projects' },
 }
 
 export default function Portfolio({ projects }: Props) {

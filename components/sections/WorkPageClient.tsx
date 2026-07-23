@@ -11,13 +11,13 @@ const content = {
   es: {
     title: 'Todos los proyectos',
     subtitle: 'Diseño de producto, UX/UI y desarrollo front-end.',
-    cta: 'Ver caso →',
+    cta: 'Ver proyecto →',
     comingSoon: 'Próximamente',
   },
   en: {
     title: 'All projects',
     subtitle: 'Product design, UX/UI and front-end development.',
-    cta: 'View case →',
+    cta: 'View project →',
     comingSoon: 'Coming soon',
   },
 }
