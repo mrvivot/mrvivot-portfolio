@@ -406,14 +406,16 @@ export default function ProjectClient({
               </p>
               <div
                 className="bg-surface"
-                style={{ aspectRatio: '16/9', borderRadius: '12px', marginTop: '24px', position: 'relative', overflow: 'hidden' }}
+                style={{ borderRadius: '12px', marginTop: '24px', overflow: 'hidden' }}
               >
                 {phase.image && (
                   <Image
                     src={phase.image}
                     alt={lang === 'es' ? phase.titleEs : phase.titleEn}
-                    fill
-                    className="object-cover"
+                    width={phase.imageWidth}
+                    height={phase.imageHeight}
+                    sizes="100vw"
+                    style={{ width: '100%', height: 'auto', display: 'block' }}
                   />
                 )}
               </div>

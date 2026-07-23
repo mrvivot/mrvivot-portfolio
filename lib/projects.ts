@@ -35,6 +35,12 @@ export function getProject(slug: string): Project {
   return { ...data, content, slug }
 }
 
+export function getImageDimensions(publicPath: string): { width: number; height: number } {
+  const filePath = path.join(process.cwd(), 'public', publicPath)
+  const buffer = fs.readFileSync(filePath)
+  return { width: buffer.readUInt32BE(16), height: buffer.readUInt32BE(20) }
+}
+
 export function getAllProjects(): Project[] {
   const files = fs.readdirSync(projectsDir)
   return files

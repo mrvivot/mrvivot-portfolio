@@ -1,4 +1,4 @@
-import { getProject, getAllProjects } from '@/lib/projects'
+import { getProject, getAllProjects, getImageDimensions } from '@/lib/projects'
 import ProjectClient from './ProjectClient'
 
 export function generateStaticParams() {
@@ -12,6 +12,14 @@ export default async function ProjectPage({
 }) {
   const { slug } = await params
   const project = getProject(slug)
+
+  if (project.phases) {
+    project.phases = project.phases.map((phase: any) => {
+      if (!phase.image) return phase
+      const { width, height } = getImageDimensions(phase.image)
+      return { ...phase, imageWidth: width, imageHeight: height }
+    })
+  }
 
   let nextProject = null
   if (project.next) {
