@@ -105,21 +105,13 @@ export default function WorkPageClient({ projects }: Props) {
                 className="bg-surface"
                 style={{ padding: '20px', borderRadius: '0 0 16px 16px' }}
               >
-                {/* Categoría + Año */}
-                <div className="flex items-center justify-between" style={{ marginBottom: '8px' }}>
-                  <p
-                    className="text-accent-dark uppercase"
-                    style={{ fontSize: '11px', letterSpacing: '0.12em' }}
-                  >
-                    {lang === 'es' ? project.category : (project.categoryEn ?? project.category)}
-                  </p>
-                  <p
-                    className="text-text-secondary"
-                    style={{ fontSize: '11px', letterSpacing: '0.12em' }}
-                  >
-                    {project.year}
-                  </p>
-                </div>
+                {/* Categoría */}
+                <p
+                  className="text-accent-dark uppercase"
+                  style={{ fontSize: '11px', letterSpacing: '0.12em', marginBottom: '8px' }}
+                >
+                  {lang === 'es' ? project.category : (project.categoryEn ?? project.category)}
+                </p>
 
                 {/* Título */}
                 <h2
