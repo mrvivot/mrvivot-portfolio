@@ -33,6 +33,10 @@ export default function Nav() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
 
+  const isWorkActive = pathname === '/work' || pathname.startsWith('/work/')
+  const isBlogActive = pathname === '/blog' || pathname.startsWith('/blog/')
+  const mobileActive = [pathname === '/', isWorkActive, isBlogActive, false]
+
   const handleLogoClick = (e: React.MouseEvent) => {
     if (pathname === '/') {
       e.preventDefault()
@@ -68,13 +72,17 @@ export default function Nav() {
         <nav className="flex items-center gap-8">
           <Link
             href="/work"
-            className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+            className={`text-sm font-medium transition-colors ${
+              isWorkActive ? 'text-accent' : 'text-text-secondary hover:text-text-primary'
+            }`}
           >
             {t.work}
           </Link>
           <Link
             href="/blog"
-            className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+            className={`text-sm font-medium transition-colors ${
+              isBlogActive ? 'text-accent' : 'text-text-secondary hover:text-text-primary'
+            }`}
           >
             {t.blog}
           </Link>
@@ -154,11 +162,14 @@ export default function Nav() {
       >
         {mobileHrefs.map((href, i) => {
           const Icon = mobileIcons[i]
+          const active = mobileActive[i]
           return (
             <Link
               key={href}
               href={href}
-              className="flex flex-col items-center gap-0.5 py-2 px-4 text-text-secondary hover:text-accent transition-colors"
+              className={`flex flex-col items-center gap-0.5 py-2 px-4 transition-colors ${
+                active ? 'text-accent' : 'text-text-secondary hover:text-accent'
+              }`}
             >
               <Icon size={20} />
               <span className="text-[10px] font-medium">
