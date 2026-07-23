@@ -66,6 +66,7 @@ export default function Portfolio({ projects }: Props) {
         {projects.map((project, index) => (
           <motion.div
             key={project.slug}
+            className="h-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -73,7 +74,7 @@ export default function Portfolio({ projects }: Props) {
           >
             <Link
               href={`/work/${project.slug}`}
-              className="group block rounded-2xl overflow-hidden border border-transparent hover:border-accent transition-all duration-300"
+              className="group h-full flex flex-col rounded-2xl overflow-hidden border border-transparent hover:border-accent transition-all duration-300"
               style={{ boxShadow: cardShadow }}
             >
             <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
@@ -95,7 +96,7 @@ export default function Portfolio({ projects }: Props) {
 
             {/* Contenido */}
             <div
-              className="bg-surface"
+              className="bg-surface flex-1"
               style={{ padding: '20px', borderRadius: '0 0 16px 16px' }}
             >
               <p
@@ -111,8 +112,8 @@ export default function Portfolio({ projects }: Props) {
                 {project.client}
               </h3>
               <p
-                className="text-text-secondary"
-                style={{ fontSize: '14px', lineHeight: 1.5 }}
+                className="text-text-secondary line-clamp-2"
+                style={{ fontSize: '14px', lineHeight: 1.5, minHeight: '42px' }}
               >
                 {lang === 'es' ? project.description : (project.descriptionEn ?? project.description)}
               </p>
