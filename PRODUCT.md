@@ -21,7 +21,7 @@ Combines product design with an analytical mindset shaped by a philosophy backgr
 ## Operating Context
 
 - Bilingual ES/EN throughout, user-toggled and persisted in localStorage (default ES) — every surface must work fully in both languages, not as an afterthought.
-- Light/dark theme, user-toggled and persisted in localStorage (default light).
+- Light/dark theme: follows the visitor's system `prefers-color-scheme` on first visit; a manual toggle overrides it and persists that choice in localStorage from then on.
 - Case studies are authored in MDX (`content/projects/`) and rendered through a shared dynamic template.
 - A blog (`content/blog/`) carries shorter first-person reflections alongside the case-study work.
 - Desktop uses a sticky top nav; mobile collapses to a fixed bottom navigation bar (Inicio, Work, About, Contacto).

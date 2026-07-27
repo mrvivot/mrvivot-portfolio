@@ -30,6 +30,15 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} h-full antialiased`}
     >
       <body className="font-sans bg-background text-text-primary min-h-full flex flex-col pt-14 md:pt-0 pb-16 md:pb-0">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`(function () {
+    try {
+      var saved = localStorage.getItem('theme');
+      var isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (isDark) document.documentElement.classList.add('dark');
+    } catch (e) {}
+  })();`}
+        </Script>
         <ThemeProvider>
           <LanguageProvider>
             <Nav />

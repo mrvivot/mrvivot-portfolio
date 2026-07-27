@@ -15,8 +15,9 @@ Deploy en Vercel, dominio mrvivot.com.
 ## Arquitectura
 - LanguageContext (lib/LanguageContext.tsx): maneja ES/EN global,
   persiste en localStorage, default ES
-- ThemeContext (lib/ThemeContext.tsx): maneja dark/light,
-  persiste en localStorage, default light
+- ThemeContext (lib/ThemeContext.tsx): maneja dark/light; en la
+  primera visita sigue prefers-color-scheme del sistema, el toggle
+  manual lo overridea y lo persiste en localStorage
 - Nav: desktop sticky arriba, mobile se convierte en bottom
   navigation bar fija
 - Bottom nav mobile: Inicio, Work, About, Contacto

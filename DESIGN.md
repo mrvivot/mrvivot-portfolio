@@ -119,7 +119,7 @@ Density is low and rhythm is slow. Sections breathe at 96px of vertical space on
 - Flat by default; hover states shift color and scale, never elevation
 - Pill-shaped buttons and chips everywhere; soft (12–16px) radii on content containers
 - Slow vertical rhythm (96px/64px) that treats whitespace as a structural tool, not a gap
-- Bilingual (ES/EN) and dual-theme (light/dark) by construction — no visual decision is made for one language or one theme alone
+- Bilingual (ES/EN) and dual-theme (light/dark) by construction — no visual decision is made for one language or one theme alone. Theme follows the visitor's system `prefers-color-scheme` on first visit; a manual toggle overrides it and persists in localStorage from then on.
 
 ## Colors
 
