@@ -20,6 +20,7 @@ export interface Project {
   coverImage?: string
   coverColor?: string
   order?: number
+  homeOrder?: number
   next?: string
   metric?: string
   metricLabel?: string

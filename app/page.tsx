@@ -6,8 +6,8 @@ import Contact from '@/components/sections/Contact'
 
 export default function Home() {
   const projects = getAllProjects()
-    .sort((a, b) => (a.order ?? 99) - (b.order ?? 99))
-    .slice(0, 3)
+    .filter(p => p.homeOrder != null)
+    .sort((a, b) => (a.homeOrder ?? 99) - (b.homeOrder ?? 99))
 
   return (
     <main>
