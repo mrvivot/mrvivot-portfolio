@@ -27,16 +27,16 @@ export default function About() {
       className="px-6 md:px-12"
       style={{ paddingTop: '96px', paddingBottom: '96px' }}
     >
-      <motion.p
+      <motion.h2
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: 'easeOut' as const }}
         className="text-text-primary uppercase"
-        style={{ fontSize: '14px', fontWeight: 600, letterSpacing: '0.1em', marginBottom: '32px' }}
+        style={{ fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', marginBottom: '32px' }}
       >
         {t.title}
-      </motion.p>
+      </motion.h2>
 
       <div className="flex flex-col md:grid md:grid-cols-[2fr_3fr] md:items-center gap-8 md:gap-16">
 
@@ -56,6 +56,7 @@ export default function About() {
               src="/images/about-photo.jpg"
               alt="Manuel Rojo Vivot"
               fill
+              sizes="(min-width: 768px) 40vw, 280px"
               className="object-cover"
               priority
             />
@@ -71,10 +72,10 @@ export default function About() {
           className="order-1 md:order-2 flex flex-col"
           style={{ gap: '20px' }}
         >
-          <p className="text-text-primary" style={{ fontSize: '19px', lineHeight: 1.7 }}>
+          <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8 }}>
             {t.p1}
           </p>
-          <p className="text-text-primary" style={{ fontSize: '19px', lineHeight: 1.7 }}>
+          <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8 }}>
             {t.p2}
           </p>
         </motion.div>

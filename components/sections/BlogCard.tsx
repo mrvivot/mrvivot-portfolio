@@ -42,6 +42,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
             src={post.coverImage}
             alt={title}
             fill
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             onError={() => setImgError(true)}
           />
@@ -55,7 +56,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
           {post.category.map((cat) => (
             <span
               key={cat}
-              className="rounded-md px-2 py-0.5 text-[11px] text-accent"
+              className="rounded-md px-2 py-0.5 text-[11px] text-accent-chip"
               style={{ backgroundColor: "rgba(45,204,143,0.15)" }}
             >
               {CATEGORY_LABELS[cat][lang]}
@@ -65,8 +66,9 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
 
         <h3
           className={`text-text-primary font-medium leading-snug ${
-            isFeatured ? "mb-2 text-lg md:text-xl" : "mb-1.5 text-sm"
+            isFeatured ? "mb-2" : "mb-1.5"
           }`}
+          style={{ fontSize: "20px" }}
         >
           {title}
         </h3>
@@ -77,7 +79,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
           </p>
         )}
 
-        <p className="text-xs text-text-secondary opacity-70">
+        <p className="text-[11px] text-text-secondary">
           {formattedDate} · {post.readingTime} min
         </p>
       </div>

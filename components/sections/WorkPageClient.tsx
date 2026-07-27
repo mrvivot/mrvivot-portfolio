@@ -56,13 +56,13 @@ export default function WorkPageClient({ projects }: Props) {
       >
         <h1
           className="text-text-primary font-bold"
-          style={{ fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.1 }}
+          style={{ fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 1.1 }}
         >
           {t.title}
         </h1>
         <p
           className="text-text-secondary"
-          style={{ fontSize: '17px', marginTop: '12px' }}
+          style={{ fontSize: '17px', lineHeight: 1.8, marginTop: '12px' }}
         >
           {t.subtitle}
         </p>
@@ -89,6 +89,7 @@ export default function WorkPageClient({ projects }: Props) {
                     src={project.coverImage}
                     alt={project.client ?? ''}
                     fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 ) : (
@@ -107,7 +108,7 @@ export default function WorkPageClient({ projects }: Props) {
               >
                 {/* Categoría */}
                 <p
-                  className="text-accent-dark uppercase"
+                  className="text-accent-text uppercase"
                   style={{ fontSize: '11px', letterSpacing: '0.12em', marginBottom: '8px' }}
                 >
                   {lang === 'es' ? project.category : (project.categoryEn ?? project.category)}
@@ -116,7 +117,7 @@ export default function WorkPageClient({ projects }: Props) {
                 {/* Título */}
                 <h2
                   className="text-text-primary flex items-center gap-2"
-                  style={{ fontSize: '22px', fontWeight: 600, marginBottom: '6px' }}
+                  style={{ fontSize: '20px', fontWeight: 600, marginBottom: '6px' }}
                 >
                   {project.client}
                   {project.password && (
@@ -137,12 +138,12 @@ export default function WorkPageClient({ projects }: Props) {
                   {project.comingSoon ? (
                     <span
                       className="inline-block text-text-secondary border border-border bg-surface"
-                      style={{ fontSize: '12px', padding: '4px 12px', borderRadius: '999px' }}
+                      style={{ fontSize: '11px', padding: '4px 12px', borderRadius: '999px' }}
                     >
                       {t.comingSoon}
                     </span>
                   ) : (
-                    <p className="text-accent" style={{ fontSize: '13px', fontWeight: 600 }}>
+                    <p className="text-accent-text" style={{ fontSize: '14px', fontWeight: 600 }}>
                       {t.cta}
                     </p>
                   )}

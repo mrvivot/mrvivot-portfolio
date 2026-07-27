@@ -11,7 +11,10 @@ export default function BlogPage() {
 
   return (
     <main className="px-6 md:px-12 pt-12 md:pt-24 pb-24">
-      <h1 className="mb-10 text-2xl font-medium text-text-primary md:text-3xl">
+      <h1
+        className="mb-10 text-text-primary font-bold"
+        style={{ fontSize: 'clamp(28px, 4vw, 44px)', lineHeight: 1.1 }}
+      >
         Blog
       </h1>
 

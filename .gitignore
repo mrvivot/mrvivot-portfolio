@@ -36,6 +36,13 @@ yarn-error.log*
 # vercel
 .vercel
 
+# claude code (vendored skills + local settings, not project-specific)
+.claude/
+
+# impeccable (personal hook consent + regenerable cache; config.json and design.json stay tracked)
+.impeccable/config.local.json
+.impeccable/hook.cache.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

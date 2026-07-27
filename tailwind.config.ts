@@ -16,6 +16,11 @@ const config: Config = {
         "text-secondary": "var(--text-secondary)",
         accent: "var(--accent)",
         "accent-dark": "var(--accent-dark)",
+        "accent-text": "var(--accent-text)",
+        "accent-text-large": "var(--accent-text-large)",
+        "accent-fill": "var(--accent-fill)",
+        "accent-fill-hover": "var(--accent-fill-hover)",
+        "accent-chip": "var(--accent-chip)",
         border: "var(--border)",
       },
       fontFamily: {

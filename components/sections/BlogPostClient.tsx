@@ -38,7 +38,7 @@ export default function BlogPostClient({ post, children }: Props) {
           {post.category.map((cat) => (
             <span
               key={cat}
-              className="rounded-md px-2 py-0.5 text-[11px] text-accent"
+              className="rounded-md px-2 py-0.5 text-[11px] text-accent-chip"
               style={{ backgroundColor: "rgba(45,204,143,0.15)" }}
             >
               {CATEGORY_LABELS[cat][lang]}
@@ -60,12 +60,12 @@ export default function BlogPostClient({ post, children }: Props) {
 
         <p
           className="text-text-secondary"
-          style={{ fontSize: "17px", lineHeight: 1.6, marginBottom: "16px" }}
+          style={{ fontSize: "17px", lineHeight: 1.8, marginBottom: "16px" }}
         >
           {description}
         </p>
 
-        <p className="text-text-secondary" style={{ fontSize: "13px" }}>
+        <p className="text-text-secondary" style={{ fontSize: "11px" }}>
           {formattedDate} · {post.readingTime} min
         </p>
 
@@ -73,7 +73,7 @@ export default function BlogPostClient({ post, children }: Props) {
           <p
             className="text-text-secondary"
             style={{
-              fontSize: "13px",
+              fontSize: "14px",
               marginTop: "16px",
               padding: "10px 14px",
               border: "1px solid var(--border)",
@@ -91,7 +91,7 @@ export default function BlogPostClient({ post, children }: Props) {
         <div className="mt-10 border-t border-border pt-6">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-text hover:underline"
           >
             {lang === "es" ? "Ver más artículos" : "Read more articles"} →
           </Link>

@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-29T00:00:00.000Z",
+  "title": "Design System: mrvivot Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Confident Mint",
+        "canonical": "oklch(72% 0.15 160)",
+        "tonalRamp": ["oklch(15% 0.05 160)", "oklch(28% 0.09 160)", "oklch(41% 0.13 160)", "oklch(54% 0.16 160)", "oklch(63% 0.17 160)", "oklch(72% 0.15 160)", "oklch(85% 0.10 160)", "oklch(95% 0.03 160)"]
+      },
+      "accent-dark": {
+        "role": "primary",
+        "displayName": "Mint Deep",
+        "canonical": "oklch(58% 0.15 160)",
+        "tonalRamp": ["oklch(15% 0.05 160)", "oklch(28% 0.09 160)", "oklch(41% 0.13 160)", "oklch(50% 0.16 160)", "oklch(58% 0.15 160)", "oklch(68% 0.14 160)", "oklch(80% 0.09 160)", "oklch(93% 0.03 160)"],
+        "note": "Legacy token, no longer referenced by any component after the WCAG contrast pass — accent-text replaced its role for eyebrow/link text, and accent-fill replaced it for button hover. Kept defined for backward compatibility; candidate for removal in a later cleanup."
+      },
+      "accent-text": {
+        "role": "primary",
+        "displayName": "Confident Mint, text-safe",
+        "canonical": "oklch(50% 0.15 160)",
+        "tonalRamp": ["oklch(15% 0.05 160)", "oklch(24% 0.09 160)", "oklch(33% 0.12 160)", "oklch(42% 0.14 160)", "oklch(50% 0.15 160)", "oklch(60% 0.15 160)", "oklch(72% 0.13 160)", "oklch(88% 0.06 160)"],
+        "note": "WCAG-driven derivative of accent (#2DCC8F, 1.97:1 as text — fails AA). Light mode only: #1B7955 (4.5:1+ against page/surface bg). Flattens to accent's #2DCC8F in dark mode, which already clears 9:1 there."
+      },
+      "accent-text-large": {
+        "role": "primary",
+        "displayName": "Confident Mint, large-text-safe",
+        "canonical": "oklch(59% 0.16 160)",
+        "tonalRamp": ["oklch(15% 0.05 160)", "oklch(28% 0.09 160)", "oklch(40% 0.13 160)", "oklch(50% 0.15 160)", "oklch(59% 0.16 160)", "oklch(69% 0.15 160)", "oklch(81% 0.10 160)", "oklch(94% 0.04 160)"],
+        "note": "Second, lighter WCAG stop reserved for the Metric Display only (≥32px/700, qualifies for the 3:1 large-text threshold instead of 4.5:1). Light mode: #21976A (3.50:1, +17% margin). Flattens to accent's #2DCC8F in dark mode."
+      },
+      "accent-fill": {
+        "role": "primary",
+        "displayName": "Confident Mint, fill-safe",
+        "canonical": "oklch(50% 0.15 160)",
+        "tonalRamp": ["oklch(15% 0.05 160)", "oklch(24% 0.09 160)", "oklch(33% 0.12 160)", "oklch(42% 0.14 160)", "oklch(50% 0.15 160)", "oklch(60% 0.15 160)", "oklch(72% 0.13 160)", "oklch(88% 0.06 160)"],
+        "note": "#1B7955, same value as accent-text but does NOT flatten in dark mode — it's the button-fill background under white text, a bg-independent pairing (white-on-#2DCC8F fails at 2.07:1 regardless of theme). Constant across both themes."
+      },
+      "accent-fill-hover": {
+        "role": "primary",
+        "displayName": "Confident Mint, fill-safe (hover)",
+        "canonical": "oklch(42% 0.14 160)",
+        "tonalRamp": ["oklch(12% 0.04 160)", "oklch(20% 0.08 160)", "oklch(28% 0.11 160)", "oklch(35% 0.13 160)", "oklch(42% 0.14 160)", "oklch(52% 0.15 160)", "oklch(65% 0.14 160)", "oklch(82% 0.08 160)"],
+        "note": "#145C40. Darker pressed/hover state for accent-fill (7.97:1 white-on-fill). Constant across both themes, same reasoning as accent-fill."
+      },
+      "accent-chip": {
+        "role": "primary",
+        "displayName": "Confident Mint, chip-safe",
+        "canonical": "oklch(46% 0.14 160)",
+        "tonalRamp": ["oklch(14% 0.05 160)", "oklch(22% 0.09 160)", "oklch(30% 0.12 160)", "oklch(38% 0.13 160)", "oklch(46% 0.14 160)", "oklch(56% 0.15 160)", "oklch(69% 0.13 160)", "oklch(86% 0.06 160)"],
+        "note": "#186D4C (L26%, darker than accent-text's L29%). The category chip's own rgba(45,204,143,0.15) backdrop composites lighter than the page/surface background, eating into accent-text's margin (down to ~4.2:1 on the surface-backed variant — under AA). accent-chip was calibrated against the worse of the two composited chip backgrounds: 4.94:1 there, 5.36:1 against the page-bg variant. Flattens to accent (#2DCC8F) in dark mode, where the chip already clears 6-7:1 untreated."
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Warm Paper",
+        "canonical": "oklch(97.8% 0.004 90)",
+        "tonalRamp": ["oklch(20% 0.004 90)", "oklch(32% 0.004 90)", "oklch(44% 0.004 90)", "oklch(56% 0.004 90)", "oklch(68% 0.004 90)", "oklch(80% 0.004 90)", "oklch(90% 0.004 90)", "oklch(97.8% 0.004 90)"]
+      },
+      "background-dark": {
+        "role": "neutral",
+        "displayName": "Near Black",
+        "canonical": "oklch(18.5% 0.002 90)",
+        "tonalRamp": ["oklch(12% 0.002 90)", "oklch(18.5% 0.002 90)", "oklch(28% 0.002 90)", "oklch(38% 0.002 90)", "oklch(50% 0.002 90)", "oklch(64% 0.002 90)", "oklch(80% 0.002 90)", "oklch(95% 0.002 90)"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Soft Linen",
+        "canonical": "oklch(94.8% 0.006 80)",
+        "tonalRamp": ["oklch(20% 0.006 80)", "oklch(32% 0.006 80)", "oklch(44% 0.006 80)", "oklch(56% 0.006 80)", "oklch(68% 0.006 80)", "oklch(80% 0.006 80)", "oklch(88% 0.006 80)", "oklch(94.8% 0.006 80)"]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Charcoal Surface",
+        "canonical": "oklch(21.5% 0.003 90)",
+        "tonalRamp": ["oklch(14% 0.003 90)", "oklch(21.5% 0.003 90)", "oklch(30% 0.003 90)", "oklch(40% 0.003 90)", "oklch(52% 0.003 90)", "oklch(65% 0.003 90)", "oklch(80% 0.003 90)", "oklch(95% 0.003 90)"]
+      },
+      "text-primary": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(21% 0 0)",
+        "tonalRamp": ["oklch(10% 0 0)", "oklch(21% 0 0)", "oklch(32% 0 0)", "oklch(44% 0 0)", "oklch(56% 0 0)", "oklch(68% 0 0)", "oklch(82% 0 0)", "oklch(95% 0 0)"]
+      },
+      "text-primary-dark": {
+        "role": "neutral",
+        "displayName": "Warm White",
+        "canonical": "oklch(96.5% 0.004 90)",
+        "tonalRamp": ["oklch(20% 0.004 90)", "oklch(35% 0.004 90)", "oklch(50% 0.004 90)", "oklch(65% 0.004 90)", "oklch(78% 0.004 90)", "oklch(88% 0.004 90)", "oklch(93% 0.004 90)", "oklch(96.5% 0.004 90)"]
+      },
+      "text-secondary": {
+        "role": "neutral",
+        "displayName": "Warm Gray",
+        "canonical": "oklch(48% 0.003 90)",
+        "tonalRamp": ["oklch(15% 0.003 90)", "oklch(27% 0.003 90)", "oklch(38% 0.003 90)", "oklch(48% 0.003 90)", "oklch(60% 0.003 90)", "oklch(72% 0.003 90)", "oklch(84% 0.003 90)", "oklch(95% 0.003 90)"]
+      },
+      "text-secondary-dark": {
+        "role": "neutral",
+        "displayName": "Faded Linen",
+        "canonical": "oklch(60% 0.003 90)",
+        "tonalRamp": ["oklch(20% 0.003 90)", "oklch(32% 0.003 90)", "oklch(44% 0.003 90)", "oklch(60% 0.003 90)", "oklch(70% 0.003 90)", "oklch(80% 0.003 90)", "oklch(88% 0.003 90)", "oklch(95% 0.003 90)"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(89% 0.006 80)",
+        "tonalRamp": ["oklch(20% 0.006 80)", "oklch(32% 0.006 80)", "oklch(44% 0.006 80)", "oklch(56% 0.006 80)", "oklch(68% 0.006 80)", "oklch(78% 0.006 80)", "oklch(85% 0.006 80)", "oklch(89% 0.006 80)"]
+      },
+      "border-dark": {
+        "role": "neutral",
+        "displayName": "Charcoal Hairline",
+        "canonical": "oklch(26% 0.003 90)",
+        "tonalRamp": ["oklch(14% 0.003 90)", "oklch(20% 0.003 90)", "oklch(26% 0.003 90)", "oklch(35% 0.003 90)", "oklch(46% 0.003 90)", "oklch(58% 0.003 90)", "oklch(75% 0.003 90)", "oklch(92% 0.003 90)"]
+      },
+      "error": {
+        "role": "error",
+        "displayName": "Form Error Red",
+        "canonical": "oklch(55% 0.19 25)",
+        "tonalRamp": ["oklch(20% 0.10 25)", "oklch(32% 0.14 25)", "oklch(44% 0.17 25)", "oklch(55% 0.19 25)", "oklch(65% 0.17 25)", "oklch(76% 0.13 25)", "oklch(87% 0.07 25)", "oklch(95% 0.02 25)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline and case-study title only. Appears exactly once per page." },
+      "headline": { "displayName": "Headline", "purpose": "Section-level statements and hub-page h1s: Contact title, /work and /blog index, blog post title, case-study 'next project' link." },
+      "title": { "displayName": "Title", "purpose": "Card titles, phase titles, sub-headings inside long-form content, the NDA password-gate heading." },
+      "body": { "displayName": "Body", "purpose": "Long-form paragraph copy: case-study context, mdx-prose, phase descriptions, bullets, subtitles." },
+      "caption": { "displayName": "Caption", "purpose": "Compact sentence-case UI copy: card descriptions, nav/footer links, CTA links, pill-button labels. Introduced during the typeset pass to separate this from Body's long-form job." },
+      "label": { "displayName": "Label", "purpose": "Uppercase section eyebrows (headers, not captions) and form error text." },
+      "tag": { "displayName": "Tag", "purpose": "The smallest supporting text: category chips, metadata labels, phase numbers, date stamps. Introduced during the typeset pass to separate this from Label's section-header job." }
+    },
+    "shadows": [
+      { "name": "card-ambient", "value": "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)", "purpose": "Resting-state shadow on project cards only, in light mode. Never grows on hover." },
+      { "name": "card-ambient-dark", "value": "0 1px 3px rgba(0,0,0,0.02)", "purpose": "Dark-mode equivalent of card-ambient; deliberately fainter." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "ease", "purpose": "Default transition timing for color/background/border-color changes site-wide (200ms)." },
+      { "name": "ease-out-entrance", "value": "cubic-bezier(0, 0, 0.2, 1)", "purpose": "Framer Motion fadeUp entrance used on nearly every section and card (translate-y 20-30px + opacity, 0.5-0.6s)." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "0px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main call-to-action, e.g. the email button in Contact.",
+      "html": "<button class=\"ds-btn-primary\">mrvivot@gmail.com</button>",
+      "css": ".ds-btn-primary { background: var(--accent-fill, #1B7955); color: #fff; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: 999px; border: none; cursor: pointer; transition: background-color 200ms ease; } .ds-btn-primary:hover { background: var(--accent-fill-hover, #145C40); } .ds-btn-primary:focus-visible { outline: 2px solid var(--accent, #2DCC8F); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ghost/outline CTA, e.g. the LinkedIn button in Contact or the nav's 'Hablemos' link.",
+      "html": "<button class=\"ds-btn-secondary\">LinkedIn</button>",
+      "css": ".ds-btn-secondary { background: transparent; color: var(--accent-text, #1B7955); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: 999px; border: 1.5px solid var(--accent, #2DCC8F); cursor: pointer; transition: background-color 200ms ease, color 200ms ease; } .ds-btn-secondary:hover { background: var(--accent-fill, #1B7955); color: #fff; } .ds-btn-secondary:focus-visible { outline: 2px solid var(--accent, #2DCC8F); outline-offset: 2px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card-project",
+      "description": "Selected-work grid card: cover image, category eyebrow, client name, two-line description, view CTA.",
+      "html": "<a class=\"ds-card-project\" href=\"#\"><div class=\"ds-card-project__image\"><img src=\"\" alt=\"\" /></div><div class=\"ds-card-project__body\"><p class=\"ds-card-project__eyebrow\">UX/UI</p><h3 class=\"ds-card-project__title\">Client Name</h3><p class=\"ds-card-project__desc\">Short two-line project description reserved at fixed height so cards stay aligned in the grid.</p><p class=\"ds-card-project__cta\">Ver proyecto →</p></div></a>",
+      "css": ".ds-card-project { display: flex; flex-direction: column; text-decoration: none; border-radius: 16px; overflow: hidden; border: 1px solid transparent; box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03); transition: border-color 300ms ease; } .ds-card-project:hover { border-color: var(--accent, #2DCC8F); } .ds-card-project__image { aspect-ratio: 4/3; overflow: hidden; } .ds-card-project__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; } .ds-card-project:hover .ds-card-project__image img { transform: scale(1.03); } .ds-card-project__body { background: var(--surface, #F0EEE9); padding: 20px; flex: 1; } .ds-card-project__eyebrow { color: var(--accent-text, #1B7955); text-transform: uppercase; font-size: 11px; letter-spacing: 0.1em; margin-bottom: 8px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-card-project__title { color: var(--text-primary, #1A1A1A); font-size: 20px; font-weight: 600; margin-bottom: 6px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-card-project__desc { color: var(--text-secondary, #6B6B6B); font-size: 14px; line-height: 1.5; min-height: 42px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-card-project__cta { color: var(--text-primary, #1A1A1A); font-size: 13px; margin-top: 12px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-card-project:hover .ds-card-project__cta { text-decoration: underline; }"
+    },
+    {
+      "name": "Blog Card",
+      "kind": "card",
+      "refersTo": "blog-card",
+      "description": "Blog index card with category chips, title, and metadata.",
+      "html": "<a class=\"ds-blog-card\" href=\"#\"><div class=\"ds-blog-card__image\"><img src=\"\" alt=\"\" /></div><div class=\"ds-blog-card__body\"><div class=\"ds-blog-card__chips\"><span class=\"ds-chip-category\">Diseño</span></div><h3 class=\"ds-blog-card__title\">Post title</h3><p class=\"ds-blog-card__meta\">26 jul. 2026 · 4 min</p></div></a>",
+      "css": ".ds-blog-card { display: block; overflow: hidden; border-radius: 12px; border: 1px solid var(--border, #E2DED8); background: var(--surface, #F0EEE9); text-decoration: none; transition: border-color 200ms ease; } .ds-blog-card:hover { border-color: var(--accent, #2DCC8F); } .ds-blog-card__image { position: relative; height: 112px; overflow: hidden; background: var(--surface, #F0EEE9); } .ds-blog-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform 500ms ease; } .ds-blog-card:hover .ds-blog-card__image img { transform: scale(1.03); } .ds-blog-card__body { padding: 14px; } .ds-blog-card__chips { display: flex; gap: 6px; margin-bottom: 8px; } .ds-blog-card__title { color: var(--text-primary, #1A1A1A); font-size: 20px; font-weight: 500; line-height: 1.4; margin-bottom: 6px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-blog-card__meta { color: var(--text-secondary, #6B6B6B); font-size: 11px; font-family: 'Plus Jakarta Sans', sans-serif; }"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "refersTo": "chip-category",
+      "description": "Translucent-accent tag used on blog cards to mark category.",
+      "html": "<span class=\"ds-chip-category\">Diseño</span>",
+      "css": ".ds-chip-category { display: inline-block; background: rgba(45,204,143,0.15); color: var(--accent-chip, #186D4C); font-size: 11px; padding: 2px 8px; border-radius: 8px; font-family: 'Plus Jakarta Sans', sans-serif; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Desktop top-nav link with active/inactive states.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav__link ds-nav__link--active\" href=\"#\">Proyectos</a><a class=\"ds-nav__link\" href=\"#\">Blog</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 32px; font-family: 'Plus Jakarta Sans', sans-serif; } .ds-nav__link { font-size: 14px; font-weight: 500; text-decoration: none; color: var(--text-secondary, #6B6B6B); transition: color 200ms ease; } .ds-nav__link:hover { color: var(--text-primary, #1A1A1A); } .ds-nav__link--active { color: var(--accent-text, #1B7955); }"
+    },
+    {
+      "name": "Password Input",
+      "kind": "input",
+      "refersTo": "input-password",
+      "description": "NDA-gated case-study password field with default, focus, and error states.",
+      "html": "<input class=\"ds-input\" type=\"password\" placeholder=\"Contraseña\" />",
+      "css": ".ds-input { width: 100%; max-width: 280px; padding: 12px 16px; border: 1px solid var(--border, #E2DED8); border-radius: 8px; font-size: 16px; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--background, #FAF9F6); color: var(--text-primary, #1A1A1A); outline: none; transition: border-color 150ms ease; } .ds-input:focus { border-color: var(--accent, #2DCC8F); } .ds-input--error { border-color: #E53E3E; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Designer's Notebook",
+    "overview": "The site reads like a working notebook, not a showreel: one disciplined accent color, one typeface, flat surfaces, and generous air between ideas. Every visual choice defers to the content it's carrying — a case-study metric, a phase description, a piece of reasoning — rather than competing with it. This is deliberate: the audience is hiring managers judging design judgment, and a portfolio that visually overperforms its own restraint would undercut the argument it's trying to make.\n\nDensity is low and rhythm is slow. Sections breathe at 96px of vertical space on desktop (64px on mobile), so each idea — a hero claim, a result, a piece of process — gets its own uninterrupted beat before the next one starts. Nothing competes with the mint accent for attention: it is reserved for what's interactive or worth noticing (CTAs, active nav state, links, the oversized result metrics), and everywhere else the palette stays neutral paper-and-ink.",
+    "keyCharacteristics": [
+      "One accent, used sparingly and consistently, never a second hue",
+      "Flat by default; hover states shift color and scale, never elevation",
+      "Pill-shaped buttons and chips everywhere; soft (12–16px) radii on content containers",
+      "Slow vertical rhythm (96px/64px) that treats whitespace as a structural tool, not a gap",
+      "Bilingual (ES/EN) and dual-theme (light/dark) by construction — no visual decision is made for one language or one theme alone"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "The accent is the only hue used to mean \"interactive\" or \"notice this.\" It never appears as decoration, and no second accent hue is introduced, even for a single component. Four lightness stops of the same hue (accent, accent-text, accent-text-large, accent-fill) don't violate this — it's still one voice, calibrated to stay legible everywhere it speaks.", "section": "colors" },
+      { "name": "The Text-Safe Mint Rule", "body": "Never color text directly with accent (#2DCC8F) — it fails WCAG AA against every background in the light theme (1.97:1 vs the 4.5:1 required). Text and text-bearing fills route through accent-text (small/body text, 4.5:1), accent-text-large (Metric Display only, 3:1), or accent-fill/accent-fill-hover (button backgrounds under white text, theme-invariant). Reserve bare accent for borders, icons, and non-text fills only.", "section": "colors" },
+      { "name": "The Ink-for-Headers Rule", "body": "Any title, section label, or element functioning as a heading — including small uppercase eyebrows — uses text-primary (Ink), never text-secondary, regardless of size or visual weight.", "section": "colors" },
+      { "name": "The Flat Accent Rule", "body": "In dark mode, accent-dark, accent-text, accent-text-large, and accent-chip all collapse to the same value as accent (#2DCC8F) — dark mode already clears every contrast requirement at full strength, so there's no dimmed dark-mode variant. accent-fill/accent-fill-hover are the exception: they stay constant across both themes because their constraint (white text on top) doesn't depend on page background.", "section": "colors" },
+      { "name": "The Eyebrow-Is-a-Header Rule", "body": "A Label-role element is a header, not a caption, even at 13px. It follows the Ink-for-Headers color rule without exception.", "section": "typography" },
+      { "name": "The Caption/Tag Split Rule", "body": "Caption (14px) is for compact sentence-case UI copy that still reads like prose — descriptions, links, button labels. Tag (11px) is for the smallest supporting text riding along another element — a card's category, a data value's own label, a date stamp. If it could stand alone as a sentence, it's Caption; if it's decoration/metadata, it's Tag.", "section": "typography" },
+      { "name": "The Border-Over-Shadow Rule", "body": "Hover/focus states never grow a shadow. A card's hover state is a border-color shift plus a subtle image scale; a nav link's active state is a color change. Reach for border-color or the accent first, shadow last.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use the accent hue as the only color signaling \"interactive\" or \"important\" — CTAs, active nav, links, result metrics, category eyebrows — but through the correct stop: accent-text for small/body text, accent-text-large for the Metric Display only, accent-fill/accent-fill-hover for button backgrounds, and bare accent for borders/icons/non-text fills.",
+      "Do keep every title, label, and eyebrow in text-primary, even when small or uppercase; text-secondary is for genuine secondary content only.",
+      "Do hold vertical rhythm at 96px (desktop) / 64px (mobile) between major sections and case-study blocks.",
+      "Do use pill shape (999px) for every button and chip, and 12–16px soft-rectangle radii for every content container.",
+      "Do signal hover/active state with border-color, text-color, or scale — never with added or deepened shadow.",
+      "Do reserve fixed two-line height for card descriptions so grid cards stay aligned regardless of copy length.",
+      "Do design every new surface bilingually (ES/EN) and theme-aware (light/dark) from the start, not as a retrofit."
+    ],
+    "donts": [
+      "Don't introduce a second accent hue, even for a single one-off component. (Four lightness stops of the same hue is fine; a second hue is not.)",
+      "Don't color text directly with bare accent (#2DCC8F) — it fails WCAG AA against every light-mode background and as a white-text button fill in both themes. Always route through accent-text, accent-text-large, or accent-fill.",
+      "Don't add a drop shadow beyond the existing faint ambient card shadow; no shadow-based hover elevation anywhere in the system.",
+      "Don't hardcode colors in components outside the CSS-variable token system, except the scoped, intentional #E53E3E error state.",
+      "Don't use a circular avatar or profile-style imagery; photo frames follow the same 16px soft-rectangle language as everything else.",
+      "Don't write Tailwind v4-only syntax or config; the project is pinned to Tailwind v3."
+    ]
+  }
+}

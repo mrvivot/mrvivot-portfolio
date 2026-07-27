@@ -112,17 +112,21 @@ export default function ProjectClient({
         <Lock size={32} className="text-text-secondary" style={{ marginBottom: '24px' }} />
         <h1
           className="text-text-primary text-center"
-          style={{ fontSize: '22px', fontWeight: 700, marginBottom: '8px' }}
+          style={{ fontSize: '20px', fontWeight: 600, marginBottom: '8px' }}
         >
           {project.slug.toUpperCase()} — {t.passwordTitle}
         </h1>
         <p
           className="text-text-secondary text-center"
-          style={{ fontSize: '15px', marginBottom: '32px', maxWidth: '320px' }}
+          style={{ fontSize: '17px', lineHeight: 1.8, marginBottom: '32px', maxWidth: '320px' }}
         >
           {t.passwordSubtitle}
         </p>
+        <label htmlFor="project-password" className="sr-only">
+          {t.passwordPlaceholder}
+        </label>
         <input
+          id="project-password"
           type="password"
           value={password}
           onChange={(e) => { setPassword(e.target.value); setError(false) }}
@@ -135,7 +139,7 @@ export default function ProjectClient({
             padding: '12px 16px',
             border: `1px solid ${error ? '#E53E3E' : 'var(--border)'}`,
             borderRadius: '8px',
-            fontSize: '15px',
+            fontSize: '16px',
             outline: 'none',
             marginBottom: '12px',
             transition: 'border-color 150ms ease',
@@ -152,14 +156,14 @@ export default function ProjectClient({
           onClick={handlePasswordSubmit}
           onMouseEnter={() => setBtnHover(true)}
           onMouseLeave={() => setBtnHover(false)}
+          className="text-white"
           style={{
             width: '100%',
             maxWidth: '280px',
             padding: '12px 28px',
             borderRadius: '999px',
-            backgroundColor: btnHover ? '#1F9D6F' : '#2DCC8F',
-            color: '#fff',
-            fontSize: '15px',
+            backgroundColor: btnHover ? 'var(--accent-fill-hover)' : 'var(--accent-fill)',
+            fontSize: '14px',
             fontWeight: 600,
             border: 'none',
             cursor: 'pointer',
@@ -183,10 +187,10 @@ export default function ProjectClient({
   if (project.comingSoon) {
     return (
       <main className="min-h-screen flex flex-col items-center justify-center px-6 gap-4">
-        <p className="text-text-secondary" style={{ fontSize: '15px' }}>
+        <p className="text-text-secondary" style={{ fontSize: '14px' }}>
           {t.comingSoonText}
         </p>
-        <Link href="/work" className="text-accent" style={{ fontSize: '14px', fontWeight: 600 }}>
+        <Link href="/work" className="text-accent-text" style={{ fontSize: '14px', fontWeight: 600 }}>
           {t.backToWork}
         </Link>
       </main>
@@ -239,6 +243,7 @@ export default function ProjectClient({
               src={project.coverImage as string}
               alt={title}
               fill
+              sizes="100vw"
               className="object-cover"
               priority
             />
@@ -256,6 +261,7 @@ export default function ProjectClient({
           margin: `${isMobile ? '64px' : '96px'} 0`,
         }}
       >
+        <h2 className="sr-only">{lang === 'es' ? 'Resumen del proyecto' : 'Project overview'}</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
             { label: t.overviewLabels.client, value: project.client },
@@ -266,11 +272,11 @@ export default function ProjectClient({
             <div key={label}>
               <p
                 className="text-text-secondary uppercase"
-                style={{ fontSize: '12px', letterSpacing: '0.08em', marginBottom: '6px' }}
+                style={{ fontSize: '11px', letterSpacing: '0.08em', marginBottom: '6px' }}
               >
                 {label}
               </p>
-              <p className="text-text-primary" style={{ fontSize: '16px', fontWeight: 600 }}>
+              <p className="text-text-primary" style={{ fontSize: '14px', fontWeight: 600 }}>
                 {value}
               </p>
             </div>
@@ -284,12 +290,12 @@ export default function ProjectClient({
           {...fadeUp}
           style={{ marginBottom: isMobile ? '64px' : '96px' }}
         >
-          <p
+          <h2
             className="text-text-primary uppercase"
             style={{ fontSize: '13px', letterSpacing: '0.1em', marginBottom: '24px', fontWeight: 700 }}
           >
             {lang === 'es' ? 'Resultado' : 'Result'}
-          </p>
+          </h2>
 
           {(project.metric as string).length <= 5 ? (
             <div style={{
@@ -300,10 +306,10 @@ export default function ProjectClient({
               maxWidth: '860px',
             }}>
               <div>
-                <div style={{ fontSize: 'clamp(72px, 10vw, 120px)', fontWeight: 700, color: 'var(--accent)', lineHeight: 1 }}>
+                <div style={{ fontSize: 'clamp(72px, 10vw, 120px)', fontWeight: 700, color: 'var(--accent-text-large)', lineHeight: 1 }}>
                   {project.metric}
                 </div>
-                <div style={{ fontSize: '18px', color: 'var(--text-secondary)', marginTop: '8px' }}>
+                <div style={{ fontSize: '17px', lineHeight: 1.8, color: 'var(--text-secondary)', marginTop: '8px' }}>
                   {metricLabel}
                 </div>
               </div>
@@ -311,8 +317,8 @@ export default function ProjectClient({
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {bullets.map((bullet: string) => (
                     <li key={bullet} className="text-text-primary"
-                      style={{ fontSize: '16px', lineHeight: 1.8, display: 'flex', gap: '10px' }}>
-                      <span className="text-accent" style={{ flexShrink: 0 }}>·</span>
+                      style={{ fontSize: '17px', lineHeight: 1.8, display: 'flex', gap: '10px' }}>
+                      <span className="text-accent-text" style={{ flexShrink: 0 }}>·</span>
                       {bullet}
                     </li>
                   ))}
@@ -321,18 +327,18 @@ export default function ProjectClient({
             </div>
           ) : (
             <div style={{ maxWidth: '680px' }}>
-              <div style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, color: 'var(--accent)', lineHeight: 1.2 }}>
+              <div style={{ fontSize: 'clamp(32px, 4vw, 48px)', fontWeight: 700, color: 'var(--accent-text-large)', lineHeight: 1.2 }}>
                 {project.metric}
               </div>
-              <div style={{ fontSize: '18px', color: 'var(--text-secondary)', marginTop: '8px', marginBottom: bullets.length > 0 ? '32px' : '0' }}>
+              <div style={{ fontSize: '17px', lineHeight: 1.8, color: 'var(--text-secondary)', marginTop: '8px', marginBottom: bullets.length > 0 ? '32px' : '0' }}>
                 {metricLabel}
               </div>
               {bullets.length > 0 && (
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
                   {bullets.map((bullet: string) => (
                     <li key={bullet} className="text-text-primary"
-                      style={{ fontSize: '16px', lineHeight: 1.8, display: 'flex', gap: '10px' }}>
-                      <span className="text-accent" style={{ flexShrink: 0 }}>·</span>
+                      style={{ fontSize: '17px', lineHeight: 1.8, display: 'flex', gap: '10px' }}>
+                      <span className="text-accent-text" style={{ flexShrink: 0 }}>·</span>
                       {bullet}
                     </li>
                   ))}
@@ -346,12 +352,12 @@ export default function ProjectClient({
       {/* ── Contexto ── */}
       {project.context1Es && (
         <motion.div {...fadeUp} style={{ maxWidth: '680px', marginBottom: isMobile ? '64px' : '96px' }}>
-          <p
+          <h2
             className="text-text-primary uppercase"
             style={{ fontSize: '13px', letterSpacing: '0.1em', marginBottom: '24px', fontWeight: 700 }}
           >
             {lang === 'es' ? 'Contexto' : 'Context'}
-          </p>
+          </h2>
           <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8, marginBottom: '20px' }}>
             {lang === 'es' ? project.context1Es : project.context1En}
           </p>
@@ -368,6 +374,7 @@ export default function ProjectClient({
           className="bg-surface"
           style={{ borderRadius: '16px', padding: '48px', margin: `${isMobile ? '64px' : '96px'} 0` }}
         >
+          <h2 className="sr-only">{lang === 'es' ? 'Problema' : 'Problem'}</h2>
           <p
             className="text-text-primary"
             style={{ fontSize: 'clamp(22px, 3vw, 32px)', fontWeight: 600, lineHeight: 1.4, maxWidth: '640px' }}
@@ -380,12 +387,12 @@ export default function ProjectClient({
       {/* ── Proceso ── */}
       {project.phases?.length > 0 && (
         <motion.div {...fadeUp}>
-          <p
+          <h2
             className="text-text-primary uppercase"
             style={{ fontSize: '13px', letterSpacing: '0.1em', marginBottom: '48px', fontWeight: 700 }}
           >
             {lang === 'es' ? 'Proceso y decisiones' : 'Process and decisions'}
-          </p>
+          </h2>
           {project.phases.map((phase: any, i: number) => (
             <motion.div
               key={phase.number}
@@ -395,13 +402,13 @@ export default function ProjectClient({
               transition={{ duration: 0.5, delay: i * 0.06, ease: 'easeOut' as const }}
               style={{ marginBottom: isMobile ? '64px' : '96px' }}
             >
-              <p className="text-text-secondary" style={{ fontSize: '12px', fontWeight: 600, marginBottom: '8px' }}>
+              <p className="text-text-secondary" style={{ fontSize: '11px', fontWeight: 600, marginBottom: '8px' }}>
                 {phase.number}
               </p>
               <h3 className="text-text-primary" style={{ fontSize: '20px', fontWeight: 600, marginBottom: '12px' }}>
                 {lang === 'es' ? phase.titleEs : phase.titleEn}
               </h3>
-              <p className="text-text-primary" style={{ fontSize: '16px', lineHeight: 1.7, maxWidth: '680px' }}>
+              <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8, maxWidth: '680px' }}>
                 {lang === 'es' ? phase.descEs : phase.descEn}
               </p>
               <div
@@ -430,20 +437,20 @@ export default function ProjectClient({
           {...fadeUp}
           style={{ borderTop: '1px solid var(--border)', padding: `${isMobile ? '64px' : '96px'} 0` }}
         >
-          <p
-            className="text-text-secondary uppercase"
+          <h2
+            className="text-text-primary uppercase"
             style={{ fontSize: '13px', letterSpacing: '0.1em', marginBottom: '16px', fontWeight: 700 }}
           >
             {t.nextLabel}
-          </p>
+          </h2>
           <Link href={`/work/${project.next}`} className="group inline-flex flex-col">
             <span
-              className="text-text-primary group-hover:text-accent transition-colors"
-              style={{ fontSize: '28px', fontWeight: 700 }}
+              className="text-text-primary group-hover:text-accent-text transition-colors"
+              style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700 }}
             >
               {nextTitle}
             </span>
-            <span className="text-accent" style={{ fontSize: '14px', fontWeight: 600, marginTop: '8px' }}>
+            <span className="text-accent-text" style={{ fontSize: '14px', fontWeight: 600, marginTop: '8px' }}>
               {t.nextCta}
             </span>
           </Link>

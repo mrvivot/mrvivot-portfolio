@@ -10,6 +10,15 @@
   --text-secondary: #6B6B6B;
   --accent: #2DCC8F;
   --accent-dark: #1F9D6F;
+  /* WCAG-safe accent for text against the page/surface background (4.5:1). Flattens to --accent in dark mode, which already clears 9:1 there. */
+  --accent-text: #1B7955;
+  /* WCAG-safe accent for large/bold text only (3:1), e.g. the case-study Metric Display. Flattens to --accent in dark mode. */
+  --accent-text-large: #21976A;
+  /* Accent as a solid fill under white text (buttons). Bg-independent, so it does NOT flatten in dark mode — white-on-#2DCC8F fails contrast regardless of theme. */
+  --accent-fill: #1B7955;
+  --accent-fill-hover: #145C40;
+  /* Darker than --accent-text specifically for the category chip: its own translucent mint backdrop (rgba(45,204,143,0.15)) eats into accent-text's margin, dropping it to ~4.2:1 on the surface-backed variant. This clears 4.5:1 against both the page-bg and surface-bg chip variants. Flattens to --accent in dark mode. */
+  --accent-chip: #186D4C;
   --border: #E2DED8;
 }
 
@@ -21,6 +30,9 @@
   --text-secondary: #888884;
   --accent: #2DCC8F;
   --accent-dark: #2DCC8F;
+  --accent-text: #2DCC8F;
+  --accent-text-large: #2DCC8F;
+  --accent-chip: #2DCC8F;
   --border: #2A2A28;
 }
 
@@ -98,7 +110,7 @@
 }
 
 .mdx-prose a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: underline;
   text-underline-offset: 3px;
 }

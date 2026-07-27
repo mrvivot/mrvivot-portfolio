@@ -39,7 +39,7 @@ export default function Contact() {
     >
       <motion.h2
         className="text-text-primary font-bold"
-        style={{ fontSize: 'clamp(28px, 4vw, 40px)' }}
+        style={{ fontSize: 'clamp(28px, 4vw, 44px)' }}
         {...fadeUp(0)}
       >
         {t.title}
@@ -47,7 +47,7 @@ export default function Contact() {
 
       <motion.p
         className="text-text-secondary"
-        style={{ fontSize: '17px', marginTop: '12px', marginBottom: '32px' }}
+        style={{ fontSize: '17px', lineHeight: 1.8, marginTop: '12px', marginBottom: '32px' }}
         {...fadeUp(0.1)}
       >
         {t.subtitle}
@@ -62,15 +62,15 @@ export default function Contact() {
           href="mailto:mrvivot@gmail.com"
           className="text-white font-semibold"
           style={{
-            backgroundColor: '#2DCC8F',
+            backgroundColor: 'var(--accent-fill)',
             padding: '12px 28px',
             borderRadius: '999px',
-            fontSize: '15px',
+            fontSize: '14px',
             fontWeight: 600,
             transition: 'background-color 200ms ease',
           }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#1F9D6F')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = '#2DCC8F')}
+          onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--accent-fill-hover)')}
+          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--accent-fill)')}
         >
           {t.primaryLabel}
         </a>
@@ -80,11 +80,11 @@ export default function Contact() {
           href="https://linkedin.com/in/mrvivot"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent font-semibold hover:bg-accent hover:text-white transition-colors"
+          className="text-accent-text font-semibold hover:bg-accent-fill hover:text-white transition-colors"
           style={{
             padding: '12px 28px',
             borderRadius: '999px',
-            fontSize: '15px',
+            fontSize: '14px',
             fontWeight: 600,
             border: '1.5px solid var(--accent)',
             transition: 'background-color 200ms ease, color 200ms ease',

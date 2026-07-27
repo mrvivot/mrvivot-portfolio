@@ -1,0 +1,98 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-07-26T20:59:00.609Z",
+        "reason": "User confirmed: conventional MDX blockquote treatment, not the side-tab card slop pattern"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "16px",
+        "files": [
+          "app/work/[slug]/ProjectClient.tsx"
+        ],
+        "createdAt": "2026-07-27T01:22:10.494Z",
+        "reason": "User confirmed: password input set to 16px as the iOS Safari auto-zoom-on-focus floor, documented as a scoped exception in DESIGN.md"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "18px",
+        "files": [
+          "components/layout/Nav.tsx"
+        ],
+        "createdAt": "2026-07-27T01:22:10.530Z",
+        "reason": "User confirmed: Nav wordmark unified to 18px across desktop/mobile, documented as a scoped exception in DESIGN.md"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "72px",
+        "files": [
+          "app/work/[slug]/ProjectClient.tsx"
+        ],
+        "createdAt": "2026-07-27T01:28:01.390Z",
+        "reason": "User confirmed: Metric Display signature component, documented scoped exception in DESIGN.md with its own dedicated scale"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "48px",
+        "files": [
+          "app/work/[slug]/ProjectClient.tsx"
+        ],
+        "createdAt": "2026-07-27T01:28:01.430Z",
+        "reason": "User confirmed: Metric Display long-metric variant, documented scoped exception in DESIGN.md"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "22px",
+        "files": [
+          "app/work/[slug]/ProjectClient.tsx"
+        ],
+        "createdAt": "2026-07-27T01:28:01.467Z",
+        "reason": "User confirmed: Problem Statement callout, documented scoped exception in DESIGN.md as the system's one pull-quote-like moment"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "22px",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-07-27T01:28:23.303Z",
+        "reason": "User confirmed: .mdx-prose h2, documented Prose headings sub-scale in DESIGN.md, one step below page-level Display/Headline/Title"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "18px",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-07-27T01:28:23.338Z",
+        "reason": "User confirmed: .mdx-prose h3, documented Prose headings sub-scale in DESIGN.md"
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "22px",
+        "files": [
+          "components/sections/Hero.tsx"
+        ],
+        "createdAt": "2026-07-27T01:28:23.373Z",
+        "reason": "User confirmed: Hero lead sentence, documented scoped exception in DESIGN.md, one instance only"
+      },
+      {
+        "rule": "design-system-radius",
+        "value": "4px",
+        "files": [
+          "app/globals.css"
+        ],
+        "createdAt": "2026-07-27T01:30:36.591Z",
+        "reason": "User confirmed: 4px intentional for inline code, added as rounded.xs"
+      }
+    ]
+  }
+}

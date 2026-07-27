@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { useLanguage } from '@/lib/LanguageContext'
 import { useTheme } from '@/lib/ThemeContext'
@@ -11,11 +11,13 @@ const content = {
     greeting: 'Hola, soy Manuel Rojo Vivot.',
     pills: ['UX/UI', 'Product Design', 'Front-end'],
     headline: 'Diseño experiencias digitales que conectan usuarios con negocios reales.',
+    scrollToWork: 'Ir a proyectos',
   },
   en: {
     greeting: "Hi, I'm Manuel Rojo Vivot.",
     pills: ['UX/UI', 'Product Design', 'Front-end'],
     headline: 'Designing digital experiences that connect people with real business goals.',
+    scrollToWork: 'Go to projects',
   },
 }
 
@@ -29,6 +31,7 @@ export default function Hero() {
   const { lang } = useLanguage()
   const { dark } = useTheme()
   const t = content[lang]
+  const prefersReducedMotion = useReducedMotion()
 
   const blobOpacity1 = dark ? 0.32 : 0.26
   const blobOpacity2 = dark ? 0.24 : 0.19
@@ -57,7 +60,7 @@ export default function Hero() {
           backgroundColor: `rgba(45, 204, 143, ${blobOpacity1})`,
           filter: isMobile ? 'blur(80px)' : 'blur(120px)',
         }}
-        animate={{ x: [0, 60, 0], y: [0, -60, 0] }}
+        animate={prefersReducedMotion ? undefined : { x: [0, 60, 0], y: [0, -60, 0] }}
         transition={{ duration: 6, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
       />
       <motion.div
@@ -68,7 +71,7 @@ export default function Hero() {
           backgroundColor: `rgba(45, 204, 143, ${blobOpacity2})`,
           filter: isMobile ? 'blur(80px)' : 'blur(120px)',
         }}
-        animate={{ x: [0, -60, 0], y: [0, 60, 0] }}
+        animate={prefersReducedMotion ? undefined : { x: [0, -60, 0], y: [0, 60, 0] }}
         transition={{ duration: 8, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
       />
 
@@ -107,7 +110,7 @@ export default function Hero() {
         <motion.h1
           className="font-bold text-text-primary mt-8 md:mt-6"
           style={{
-            fontSize: 'clamp(36px, 5vw, 56px)',
+            fontSize: 'clamp(32px, 5vw, 56px)',
             lineHeight: 1.1,
             maxWidth: '100%',
             wordBreak: 'break-word',
@@ -127,9 +130,9 @@ export default function Hero() {
           <motion.button
             onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
             className="text-text-primary hover:text-accent transition-colors cursor-pointer"
-            animate={{ y: [0, 8, 0] }}
+            animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            aria-label="Ir a proyectos"
+            aria-label={t.scrollToWork}
           >
             <ArrowDown size={32} />
           </motion.button>

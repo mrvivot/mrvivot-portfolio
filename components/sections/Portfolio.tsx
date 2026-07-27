@@ -44,16 +44,16 @@ export default function Portfolio({ projects }: Props) {
         className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-3 md:gap-0"
         style={{ marginBottom: '32px' }}
       >
-        <p
+        <h2
           className="text-text-primary uppercase"
-          style={{ fontSize: '14px', letterSpacing: '0.1em', fontWeight: 600 }}
+          style={{ fontSize: '13px', letterSpacing: '0.1em', fontWeight: 600 }}
         >
           {t.title}
-        </p>
+        </h2>
         <Link
           href="/work"
           className="hidden md:flex items-center gap-1.5 group text-text-primary hover:underline underline-offset-4 transition-all duration-200"
-          style={{ fontSize: '15px', fontWeight: 500 }}
+          style={{ fontSize: '14px', fontWeight: 500 }}
         >
           <span>{t.viewAll}</span>
           <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
@@ -83,6 +83,7 @@ export default function Portfolio({ projects }: Props) {
                   src={project.coverImage}
                   alt={project.client ?? ''}
                   fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               ) : (
@@ -100,7 +101,7 @@ export default function Portfolio({ projects }: Props) {
               style={{ padding: '20px', borderRadius: '0 0 16px 16px' }}
             >
               <p
-                className="text-accent-dark uppercase"
+                className="text-accent-text uppercase"
                 style={{ fontSize: '11px', letterSpacing: '0.1em', marginBottom: '8px' }}
               >
                 {lang === 'es' ? project.category : (project.categoryEn ?? project.category)}
@@ -119,7 +120,7 @@ export default function Portfolio({ projects }: Props) {
               </p>
               <p
                 className="text-text-primary hover:underline"
-                style={{ fontSize: '13px', marginTop: '12px' }}
+                style={{ fontSize: '14px', marginTop: '12px' }}
               >
                 {t.cta}
               </p>
@@ -132,7 +133,7 @@ export default function Portfolio({ projects }: Props) {
       <Link
         href="/work"
         className="flex md:hidden items-center gap-1.5 group text-text-primary hover:underline underline-offset-4 transition-all duration-200"
-        style={{ fontSize: '15px', fontWeight: 500, marginTop: '32px' }}
+        style={{ fontSize: '14px', fontWeight: 500, marginTop: '32px' }}
       >
         <span>{t.viewAll}</span>
         <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">

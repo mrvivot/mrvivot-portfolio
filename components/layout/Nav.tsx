@@ -14,6 +14,8 @@ const labels = {
     cv: 'CV ↓',
     contact: 'Hablemos',
     mobileLinks: ['Inicio', 'Proyectos', 'Blog', 'Contacto'],
+    changeLanguage: 'Cambiar idioma',
+    toggleDarkMode: 'Alternar modo oscuro',
   },
   en: {
     work: 'Work',
@@ -21,6 +23,8 @@ const labels = {
     cv: 'CV ↓',
     contact: "Let's Talk",
     mobileLinks: ['Home', 'Work', 'Blog', 'Contact'],
+    changeLanguage: 'Change language',
+    toggleDarkMode: 'Toggle dark mode',
   },
 }
 
@@ -64,7 +68,7 @@ export default function Nav() {
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="text-lg font-semibold text-text-primary hover:text-accent transition-colors"
+          className="text-lg font-semibold text-text-primary hover:text-accent-text transition-colors"
         >
           mrvivot
         </Link>
@@ -73,7 +77,7 @@ export default function Nav() {
           <Link
             href="/work"
             className={`text-sm font-medium transition-colors ${
-              isWorkActive ? 'text-accent' : 'text-text-secondary hover:text-text-primary'
+              isWorkActive ? 'text-accent-text' : 'text-text-secondary hover:text-text-primary'
             }`}
           >
             {t.work}
@@ -81,7 +85,7 @@ export default function Nav() {
           <Link
             href="/blog"
             className={`text-sm font-medium transition-colors ${
-              isBlogActive ? 'text-accent' : 'text-text-secondary hover:text-text-primary'
+              isBlogActive ? 'text-accent-text' : 'text-text-secondary hover:text-text-primary'
             }`}
           >
             {t.blog}
@@ -97,7 +101,7 @@ export default function Nav() {
           </a>
           <Link
             href="/#contact"
-            className="px-4 py-1.5 rounded-full text-sm font-medium text-accent hover:bg-accent hover:text-white transition-colors"
+            className="px-4 py-1.5 rounded-full text-sm font-medium text-accent-text hover:bg-accent-fill hover:text-white transition-colors"
             style={{ border: '1.5px solid var(--accent)' }}
           >
             {t.contact}
@@ -107,16 +111,16 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1.5 text-xs font-semibold text-text-secondary hover:text-text-primary transition-colors"
-            aria-label="Cambiar idioma"
+            className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover:text-text-primary transition-colors"
+            aria-label={t.changeLanguage}
           >
             <Globe size={15} />
             {lang.toUpperCase()}
           </button>
           <button
             onClick={toggleDark}
-            className="p-1.5 rounded-md text-text-secondary hover:text-text-primary transition-colors"
-            aria-label="Toggle dark mode"
+            className="p-3.5 rounded-md text-text-secondary hover:text-text-primary transition-colors"
+            aria-label={t.toggleDarkMode}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
           </button>
@@ -131,24 +135,24 @@ export default function Nav() {
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="text-text-primary hover:text-accent transition-colors"
-          style={{ fontSize: '16px', fontWeight: 600 }}
+          className="text-text-primary hover:text-accent-text transition-colors"
+          style={{ fontSize: '18px', fontWeight: 600 }}
         >
           mrvivot
         </Link>
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1.5 text-xs font-semibold text-text-secondary hover:text-text-primary transition-colors"
-            aria-label="Cambiar idioma"
+            className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover:text-text-primary transition-colors"
+            aria-label={t.changeLanguage}
           >
             <Globe size={15} />
             {lang.toUpperCase()}
           </button>
           <button
             onClick={toggleDark}
-            className="p-1.5 rounded-md text-text-secondary hover:text-text-primary transition-colors"
-            aria-label="Toggle dark mode"
+            className="p-3.5 rounded-md text-text-secondary hover:text-text-primary transition-colors"
+            aria-label={t.toggleDarkMode}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
           </button>
@@ -168,11 +172,11 @@ export default function Nav() {
               key={href}
               href={href}
               className={`flex flex-col items-center gap-0.5 py-2 px-4 transition-colors ${
-                active ? 'text-accent' : 'text-text-secondary hover:text-accent'
+                active ? 'text-accent-text' : 'text-text-secondary hover:text-accent-text'
               }`}
             >
               <Icon size={20} />
-              <span className="text-[10px] font-medium">
+              <span className="text-[11px] font-medium">
                 {t.mobileLinks[i]}
               </span>
             </Link>

@@ -20,14 +20,14 @@ export default function Footer() {
             href="https://linkedin.com/in/mrvivot"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary hover:text-accent transition-colors"
+            className="text-text-secondary hover:text-accent-text transition-colors"
           >
             LinkedIn
           </a>
           <span className="text-text-secondary">·</span>
           <a
             href="mailto:mrvivot@gmail.com"
-            className="text-text-secondary hover:text-accent transition-colors"
+            className="text-text-secondary hover:text-accent-text transition-colors"
           >
             mrvivot@gmail.com
           </a>
@@ -37,7 +37,7 @@ export default function Footer() {
             download
             target="_blank"
             rel="noopener noreferrer"
-            className="text-text-secondary hover:text-accent transition-colors"
+            className="text-text-secondary hover:text-accent-text transition-colors"
           >
             CV ↓
           </a>
