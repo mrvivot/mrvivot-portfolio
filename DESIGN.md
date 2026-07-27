@@ -204,6 +204,8 @@ Two radius families cover the entire system: **pill** (`999px`) for anything cli
 
 **`rounded.xs` (`4px`)** is a scoped exception reserved for inline `<code>` in `.mdx-prose` content only — at that small a glyph size, the system's normal 8px minimum reads as disproportionately round. Not a precedent for any other small element; those still use `sm` (8px).
 
+**The favicon (`app/icon.png`, circular, transparent corners) is a scoped exception to the no-circular-avatar rule below.** It's platform chrome, not page content — the browser tab, OS dock, and (if ever wired up) home-screen icon each apply their own circular/rounded mask by convention, independent of this site's own visual language. The "notebook, not social-profile" register the no-circular-avatar rule protects applies to imagery *inside* the page (the About photo, project covers); it was never meant to fight the platform's own icon conventions. Not a precedent for any avatar or photo treatment within the site itself.
+
 Borders are hairline (1–1.5px) and low-contrast at rest (`var(--border)`), reserved for definition rather than emphasis; the one place a border carries emphasis is the accent-colored `1.5px` border on secondary/ghost buttons and the "Hablemos" nav CTA.
 
 ## Components
@@ -252,5 +254,5 @@ The oversized result number on each case-study page (`clamp(72px, 10vw, 120px)`,
 - **Don't** color text directly with bare `accent` (`#2DCC8F`) — it fails WCAG AA against every light-mode background and as a white-text button fill in both themes. Always route through `accent-text`, `accent-text-large`, or `accent-fill`.
 - **Don't** add a drop shadow beyond the existing faint ambient card shadow; no shadow-based hover elevation anywhere in the system.
 - **Don't** hardcode colors in components outside the CSS-variable token system, except the scoped, intentional `#E53E3E` error state.
-- **Don't** use a circular avatar or profile-style imagery; photo frames follow the same 16px soft-rectangle language as everything else.
+- **Don't** use a circular avatar or profile-style imagery *within the page*; photo frames follow the same 16px soft-rectangle language as everything else. (The favicon is exempt — see the Shapes section; it's platform chrome, not page content.)
 - **Don't** write Tailwind v4-only syntax or config; the project is pinned to Tailwind v3.

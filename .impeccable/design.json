@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-29T00:00:00.000Z",
+  "generatedAt": "2026-07-30T00:00:00.000Z",
   "title": "Design System: mrvivot Portfolio",
   "extensions": {
     "colorMeta": {
@@ -233,7 +233,7 @@
       "Don't color text directly with bare accent (#2DCC8F) — it fails WCAG AA against every light-mode background and as a white-text button fill in both themes. Always route through accent-text, accent-text-large, or accent-fill.",
       "Don't add a drop shadow beyond the existing faint ambient card shadow; no shadow-based hover elevation anywhere in the system.",
       "Don't hardcode colors in components outside the CSS-variable token system, except the scoped, intentional #E53E3E error state.",
-      "Don't use a circular avatar or profile-style imagery; photo frames follow the same 16px soft-rectangle language as everything else.",
+      "Don't use a circular avatar or profile-style imagery within the page; photo frames follow the same 16px soft-rectangle language as everything else. (The favicon is exempt as platform chrome, not page content.)",
       "Don't write Tailwind v4-only syntax or config; the project is pinned to Tailwind v3."
     ]
   }
