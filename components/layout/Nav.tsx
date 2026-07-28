@@ -1,11 +1,15 @@
 'use client'
 
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Home, LayoutGrid, BookOpen, Mail, Sun, Moon, Globe } from 'lucide-react'
 import { useTheme } from '@/lib/ThemeContext'
 import { useLanguage } from '@/lib/LanguageContext'
+import { useMagnetic } from '@/lib/useMagnetic'
+
+const MotionLink = motion.create(Link)
 
 const labels = {
   es: {
@@ -55,6 +59,7 @@ export default function Nav() {
   }, [])
 
   const t = labels[lang]
+  const contactMagnetic = useMagnetic<HTMLAnchorElement>()
 
   return (
     <>
@@ -99,13 +104,14 @@ export default function Nav() {
           >
             {t.cv}
           </a>
-          <Link
+          <MotionLink
+            ref={contactMagnetic.ref}
             href="/#contact"
             className="px-4 py-1.5 rounded-full text-sm font-medium text-accent-text hover:bg-accent-fill hover:text-white transition-colors"
-            style={{ border: '1.5px solid var(--accent)' }}
+            style={{ border: '1.5px solid var(--accent)', x: contactMagnetic.x, y: contactMagnetic.y }}
           >
             {t.contact}
-          </Link>
+          </MotionLink>
         </nav>
 
         <div className="flex items-center gap-3">

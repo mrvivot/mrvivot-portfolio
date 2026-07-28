@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useLanguage } from '@/lib/LanguageContext'
+import { useMagnetic } from '@/lib/useMagnetic'
 
 const content = {
   es: {
@@ -30,6 +31,8 @@ const fadeUp = (delay: number) => ({
 export default function Contact() {
   const { lang } = useLanguage()
   const t = content[lang]
+  const primaryMagnetic = useMagnetic<HTMLAnchorElement>()
+  const secondaryMagnetic = useMagnetic<HTMLAnchorElement>()
 
   return (
     <section
@@ -58,7 +61,8 @@ export default function Contact() {
         {...fadeUp(0.2)}
       >
         {/* Botón primario */}
-        <a
+        <motion.a
+          ref={primaryMagnetic.ref}
           href="mailto:mrvivot@gmail.com"
           className="text-white font-semibold"
           style={{
@@ -68,15 +72,18 @@ export default function Contact() {
             fontSize: '14px',
             fontWeight: 600,
             transition: 'background-color 200ms ease',
+            x: primaryMagnetic.x,
+            y: primaryMagnetic.y,
           }}
           onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--accent-fill-hover)')}
           onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--accent-fill)')}
         >
           {t.primaryLabel}
-        </a>
+        </motion.a>
 
         {/* Botón secundario */}
-        <a
+        <motion.a
+          ref={secondaryMagnetic.ref}
           href="https://linkedin.com/in/mrvivot"
           target="_blank"
           rel="noopener noreferrer"
@@ -88,10 +95,12 @@ export default function Contact() {
             fontWeight: 600,
             border: '1.5px solid var(--accent)',
             transition: 'background-color 200ms ease, color 200ms ease',
+            x: secondaryMagnetic.x,
+            y: secondaryMagnetic.y,
           }}
         >
           {t.secondaryLabel}
-        </a>
+        </motion.a>
       </motion.div>
 
       <motion.a
