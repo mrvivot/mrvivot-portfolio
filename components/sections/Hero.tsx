@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { useLanguage } from '@/lib/LanguageContext'
 import { useTheme } from '@/lib/ThemeContext'
+import { useMagnetic } from '@/lib/useMagnetic'
 
 const content = {
   es: {
@@ -34,6 +35,8 @@ export default function Hero() {
 
   const blobOpacity1 = dark ? 0.32 : 0.26
   const blobOpacity2 = dark ? 0.24 : 0.19
+
+  const scrollMagnetic = useMagnetic<HTMLDivElement>({ strength: 5, radius: 35 })
 
   return (
     <section
@@ -102,15 +105,21 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <motion.button
-            onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-text-primary hover-fine:text-accent transition-colors cursor-pointer"
-            animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-            aria-label={t.scrollToWork}
+          <motion.div
+            ref={scrollMagnetic.ref}
+            className="inline-block"
+            style={{ x: scrollMagnetic.x, y: scrollMagnetic.y }}
           >
-            <ArrowDown size={32} />
-          </motion.button>
+            <motion.button
+              onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-text-primary hover-fine:text-accent transition-colors cursor-pointer"
+              animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              aria-label={t.scrollToWork}
+            >
+              <ArrowDown size={32} />
+            </motion.button>
+          </motion.div>
         </motion.div>
       </div>
     </section>
