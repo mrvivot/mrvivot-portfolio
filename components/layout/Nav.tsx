@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { Home, LayoutGrid, BookOpen, Mail, Sun, Moon, Globe } from 'lucide-react'
@@ -79,6 +79,9 @@ export default function Nav() {
 
   const t = labels[lang]
   const contactMagnetic = useMagnetic<HTMLAnchorElement>()
+  const prefersReducedMotion = useReducedMotion()
+  const tapScale = prefersReducedMotion ? undefined : { scale: 0.96 }
+  const tapTransition = { duration: 0.1 }
 
   return (
     <>
@@ -128,27 +131,33 @@ export default function Nav() {
             href="/#contact"
             className="px-4 py-1.5 rounded-full text-sm font-medium text-accent-text hover-fine:bg-accent-fill hover-fine:text-white transition-colors"
             style={{ border: '1.5px solid var(--accent)', x: contactMagnetic.x, y: contactMagnetic.y }}
+            whileTap={tapScale}
+            transition={tapTransition}
           >
             {t.contact}
           </MotionLink>
         </nav>
 
         <div className="flex items-center gap-3">
-          <button
+          <motion.button
             onClick={toggleLang}
             className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.changeLanguage}
+            whileTap={tapScale}
+            transition={tapTransition}
           >
             <Globe size={15} />
             {lang.toUpperCase()}
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={toggleDark}
             className="p-3.5 rounded-md text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.toggleDarkMode}
+            whileTap={tapScale}
+            transition={tapTransition}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
+          </motion.button>
         </div>
       </header>
 
@@ -166,21 +175,25 @@ export default function Nav() {
           mrvivot
         </Link>
         <div className="flex items-center gap-3">
-          <button
+          <motion.button
             onClick={toggleLang}
             className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.changeLanguage}
+            whileTap={tapScale}
+            transition={tapTransition}
           >
             <Globe size={15} />
             {lang.toUpperCase()}
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             onClick={toggleDark}
             className="p-3.5 rounded-md text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.toggleDarkMode}
+            whileTap={tapScale}
+            transition={tapTransition}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
-          </button>
+          </motion.button>
         </div>
       </header>
 
@@ -193,18 +206,20 @@ export default function Nav() {
           const Icon = mobileIcons[i]
           const active = mobileActive[i]
           return (
-            <Link
+            <MotionLink
               key={href}
               href={href}
               className={`flex flex-col items-center gap-0.5 py-2 px-4 transition-colors ${
                 active ? 'text-accent-text' : 'text-text-secondary hover-fine:text-accent-text'
               }`}
+              whileTap={tapScale}
+              transition={tapTransition}
             >
               <Icon size={20} />
               <span className="text-[11px] font-medium">
                 {t.mobileLinks[i]}
               </span>
-            </Link>
+            </MotionLink>
           )
         })}
       </nav>

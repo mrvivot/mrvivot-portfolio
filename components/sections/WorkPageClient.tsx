@@ -1,11 +1,13 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Lock } from 'lucide-react'
 import { useLanguage } from '@/lib/LanguageContext'
 import Contact from '@/components/sections/Contact'
+
+const MotionLink = motion.create(Link)
 
 const content = {
   es: {
@@ -45,6 +47,9 @@ interface Props {
 export default function WorkPageClient({ projects }: Props) {
   const { lang } = useLanguage()
   const t = content[lang]
+  const prefersReducedMotion = useReducedMotion()
+  const tapScale = prefersReducedMotion ? undefined : { scale: 0.96 }
+  const tapTransition = { duration: 0.1 }
 
   return (
     <main className="px-6 md:px-12 pt-12 md:pt-24 pb-24">
@@ -80,10 +85,12 @@ export default function WorkPageClient({ projects }: Props) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.08, ease: 'easeOut' as const }}
           >
-            <Link
+            <MotionLink
               href={`/work/${project.slug}`}
-              className="group block rounded-2xl overflow-hidden border border-transparent hover-fine:border-accent transition-all duration-300"
+              className="group block rounded-2xl overflow-hidden border border-transparent hover-fine:border-accent transition-colors duration-300"
               style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)' }}
+              whileTap={tapScale}
+              transition={tapTransition}
             >
               <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
                 {project.coverImage ? (
@@ -151,7 +158,7 @@ export default function WorkPageClient({ projects }: Props) {
                   )}
                 </div>
               </div>
-            </Link>
+            </MotionLink>
           </motion.div>
         ))}
       </div>

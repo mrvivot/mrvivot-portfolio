@@ -1,10 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '@/lib/LanguageContext'
 import { useTheme } from '@/lib/ThemeContext'
+
+const MotionLink = motion.create(Link)
 
 interface Project {
   slug: string
@@ -31,6 +33,9 @@ export default function Portfolio({ projects }: Props) {
   const { lang } = useLanguage()
   const { dark } = useTheme()
   const t = labels[lang]
+  const prefersReducedMotion = useReducedMotion()
+  const tapScale = prefersReducedMotion ? undefined : { scale: 0.96 }
+  const tapTransition = { duration: 0.1 }
 
   const cardShadow = dark
     ? '0 1px 3px rgba(0,0,0,0.02)'
@@ -74,10 +79,12 @@ export default function Portfolio({ projects }: Props) {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' as const }}
           >
-            <Link
+            <MotionLink
               href={`/work/${project.slug}`}
-              className="group h-full flex flex-col rounded-2xl overflow-hidden border border-transparent hover-fine:border-accent transition-all duration-300"
+              className="group h-full flex flex-col rounded-2xl overflow-hidden border border-transparent hover-fine:border-accent transition-colors duration-300"
               style={{ boxShadow: cardShadow }}
+              whileTap={tapScale}
+              transition={tapTransition}
             >
             <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>
               {project.coverImage ? (
@@ -127,7 +134,7 @@ export default function Portfolio({ projects }: Props) {
                 {t.cta}
               </p>
             </div>
-            </Link>
+            </MotionLink>
           </motion.div>
         ))}
       </div>

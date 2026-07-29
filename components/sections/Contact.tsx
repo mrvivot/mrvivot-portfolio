@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { useLanguage } from '@/lib/LanguageContext'
 import { useMagnetic } from '@/lib/useMagnetic'
 
@@ -33,6 +33,9 @@ export default function Contact() {
   const t = content[lang]
   const primaryMagnetic = useMagnetic<HTMLAnchorElement>()
   const secondaryMagnetic = useMagnetic<HTMLAnchorElement>()
+  const prefersReducedMotion = useReducedMotion()
+  const tapScale = prefersReducedMotion ? undefined : { scale: 0.96 }
+  const tapTransition = { duration: 0.1 }
 
   return (
     <section
@@ -74,6 +77,8 @@ export default function Contact() {
             x: primaryMagnetic.x,
             y: primaryMagnetic.y,
           }}
+          whileTap={tapScale}
+          transition={tapTransition}
         >
           {t.primaryLabel}
         </motion.a>
@@ -95,6 +100,8 @@ export default function Contact() {
             x: secondaryMagnetic.x,
             y: secondaryMagnetic.y,
           }}
+          whileTap={tapScale}
+          transition={tapTransition}
         >
           {t.secondaryLabel}
         </motion.a>

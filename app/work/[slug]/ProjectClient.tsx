@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Lock } from 'lucide-react'
@@ -73,6 +73,9 @@ export default function ProjectClient({
 }) {
   const { lang } = useLanguage()
   const t = ui[lang]
+  const prefersReducedMotion = useReducedMotion()
+  const tapScale = prefersReducedMotion ? undefined : { scale: 0.96 }
+  const tapTransition = { duration: 0.1 }
 
   const [unlocked, setUnlocked] = useState(false)
   const [password, setPassword] = useState('')
@@ -151,7 +154,7 @@ export default function ProjectClient({
             {t.passwordError}
           </p>
         )}
-        <button
+        <motion.button
           onClick={handlePasswordSubmit}
           className="text-white bg-[var(--accent-fill)] hover-fine:bg-[var(--accent-fill-hover)]"
           style={{
@@ -165,9 +168,11 @@ export default function ProjectClient({
             cursor: 'pointer',
             transition: 'background-color 150ms ease',
           }}
+          whileTap={tapScale}
+          transition={tapTransition}
         >
           {t.passwordButton}
-        </button>
+        </motion.button>
         <Link
           href="/work"
           className="text-text-secondary hover-fine:text-text-primary transition-colors"

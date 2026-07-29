@@ -2,10 +2,13 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { useState } from "react";
 import { useLanguage } from "@/lib/LanguageContext";
 import type { BlogPostMeta } from "@/lib/blog";
 import { CATEGORY_LABELS } from "@/lib/categories";
+
+const MotionLink = motion.create(Link);
 
 interface BlogCardProps {
   post: BlogPostMeta;
@@ -25,12 +28,15 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
   );
 
   const isFeatured = variant === "featured";
+  const prefersReducedMotion = useReducedMotion();
 
   return (
-    <Link
+    <MotionLink
       href={`/blog/${post.slug}`}
       aria-label={`${title} — ${post.category.join(", ")}`}
       className="group block overflow-hidden rounded-xl border border-border bg-surface transition-colors hover-fine:border-accent"
+      whileTap={prefersReducedMotion ? undefined : { scale: 0.96 }}
+      transition={{ duration: 0.1 }}
     >
       <div
         className={`relative overflow-hidden bg-surface ${
@@ -83,6 +89,6 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
           {formattedDate} · {post.readingTime} min
         </p>
       </div>
-    </Link>
+    </MotionLink>
   );
 }
