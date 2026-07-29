@@ -245,7 +245,8 @@ export default function ProjectClient({
               fill
               sizes="100vw"
               className="object-cover"
-              priority
+              loading="eager"
+              fetchPriority="high"
             />
           )}
         </div>
