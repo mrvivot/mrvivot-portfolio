@@ -76,7 +76,7 @@ export default function Portfolio({ projects }: Props) {
           >
             <Link
               href={`/work/${project.slug}`}
-              className="group h-full flex flex-col rounded-2xl overflow-hidden border border-transparent hover:border-accent transition-all duration-300"
+              className="group h-full flex flex-col rounded-2xl overflow-hidden border border-transparent hover-fine:border-accent transition-all duration-300"
               style={{ boxShadow: cardShadow }}
             >
             <div className="relative overflow-hidden" style={{ aspectRatio: '4/3' }}>

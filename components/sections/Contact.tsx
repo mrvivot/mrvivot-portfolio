@@ -64,9 +64,8 @@ export default function Contact() {
         <motion.a
           ref={primaryMagnetic.ref}
           href="mailto:mrvivot@gmail.com"
-          className="text-white font-semibold"
+          className="text-white font-semibold bg-[var(--accent-fill)] hover-fine:bg-[var(--accent-fill-hover)]"
           style={{
-            backgroundColor: 'var(--accent-fill)',
             padding: '12px 28px',
             borderRadius: '999px',
             fontSize: '14px',
@@ -75,8 +74,6 @@ export default function Contact() {
             x: primaryMagnetic.x,
             y: primaryMagnetic.y,
           }}
-          onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'var(--accent-fill-hover)')}
-          onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--accent-fill)')}
         >
           {t.primaryLabel}
         </motion.a>
@@ -87,7 +84,7 @@ export default function Contact() {
           href="https://linkedin.com/in/mrvivot"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-accent-text font-semibold hover:bg-accent-fill hover:text-white transition-colors"
+          className="text-accent-text font-semibold hover-fine:bg-accent-fill hover-fine:text-white transition-colors"
           style={{
             padding: '12px 28px',
             borderRadius: '999px',
@@ -108,7 +105,7 @@ export default function Contact() {
         download
         target="_blank"
         rel="noopener noreferrer"
-        className="md:hidden text-text-secondary hover:text-text-primary transition-colors"
+        className="md:hidden text-text-secondary hover-fine:text-text-primary transition-colors"
         style={{ fontSize: '14px', marginTop: '16px' }}
         {...fadeUp(0.3)}
       >

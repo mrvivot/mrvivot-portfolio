@@ -104,7 +104,7 @@ export default function Hero() {
         >
           <motion.button
             onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
-            className="text-text-primary hover:text-accent transition-colors cursor-pointer"
+            className="text-text-primary hover-fine:text-accent transition-colors cursor-pointer"
             animate={prefersReducedMotion ? undefined : { y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
             aria-label={t.scrollToWork}

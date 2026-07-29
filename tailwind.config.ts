@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
   content: [
@@ -28,7 +29,13 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(({ addVariant }) => {
+      // Evita el "sticky hover" en touch: solo aplica hover cuando el
+      // dispositivo realmente soporta hover con un puntero preciso (mouse).
+      addVariant("hover-fine", "@media (hover: hover) and (pointer: fine) { &:hover }");
+    }),
+  ],
 };
 
 export default config;

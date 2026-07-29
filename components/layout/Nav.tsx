@@ -41,9 +41,13 @@ export default function Nav() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
 
+  const [contactVisible, setContactVisible] = useState(false)
+
   const isWorkActive = pathname === '/work' || pathname.startsWith('/work/')
   const isBlogActive = pathname === '/blog' || pathname.startsWith('/blog/')
-  const mobileActive = [pathname === '/', isWorkActive, isBlogActive, false]
+  const isHomeActive = pathname === '/' && !contactVisible
+  const isContactActive = pathname === '/' && contactVisible
+  const mobileActive = [isHomeActive, isWorkActive, isBlogActive, isContactActive]
 
   const handleLogoClick = (e: React.MouseEvent) => {
     if (pathname === '/') {
@@ -57,6 +61,21 @@ export default function Nav() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (pathname !== '/') {
+      setContactVisible(false)
+      return
+    }
+    const el = document.getElementById('contact')
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setContactVisible(entry.isIntersecting),
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [pathname])
 
   const t = labels[lang]
   const contactMagnetic = useMagnetic<HTMLAnchorElement>()
@@ -73,7 +92,7 @@ export default function Nav() {
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="text-lg font-semibold text-text-primary hover:text-accent-text transition-colors"
+          className="text-lg font-semibold text-text-primary hover-fine:text-accent-text transition-colors"
         >
           mrvivot
         </Link>
@@ -82,7 +101,7 @@ export default function Nav() {
           <Link
             href="/work"
             className={`text-sm font-medium transition-colors ${
-              isWorkActive ? 'text-accent-text' : 'text-text-secondary hover:text-text-primary'
+              isWorkActive ? 'text-accent-text' : 'text-text-secondary hover-fine:text-text-primary'
             }`}
           >
             {t.work}
@@ -90,7 +109,7 @@ export default function Nav() {
           <Link
             href="/blog"
             className={`text-sm font-medium transition-colors ${
-              isBlogActive ? 'text-accent-text' : 'text-text-secondary hover:text-text-primary'
+              isBlogActive ? 'text-accent-text' : 'text-text-secondary hover-fine:text-text-primary'
             }`}
           >
             {t.blog}
@@ -100,14 +119,14 @@ export default function Nav() {
             download
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
+            className="text-sm font-medium text-text-secondary hover-fine:text-text-primary transition-colors"
           >
             {t.cv}
           </a>
           <MotionLink
             ref={contactMagnetic.ref}
             href="/#contact"
-            className="px-4 py-1.5 rounded-full text-sm font-medium text-accent-text hover:bg-accent-fill hover:text-white transition-colors"
+            className="px-4 py-1.5 rounded-full text-sm font-medium text-accent-text hover-fine:bg-accent-fill hover-fine:text-white transition-colors"
             style={{ border: '1.5px solid var(--accent)', x: contactMagnetic.x, y: contactMagnetic.y }}
           >
             {t.contact}
@@ -117,7 +136,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover:text-text-primary transition-colors"
+            className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.changeLanguage}
           >
             <Globe size={15} />
@@ -125,7 +144,7 @@ export default function Nav() {
           </button>
           <button
             onClick={toggleDark}
-            className="p-3.5 rounded-md text-text-secondary hover:text-text-primary transition-colors"
+            className="p-3.5 rounded-md text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.toggleDarkMode}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
@@ -141,7 +160,7 @@ export default function Nav() {
         <Link
           href="/"
           onClick={handleLogoClick}
-          className="text-text-primary hover:text-accent-text transition-colors"
+          className="text-text-primary hover-fine:text-accent-text transition-colors"
           style={{ fontSize: '18px', fontWeight: 600 }}
         >
           mrvivot
@@ -149,7 +168,7 @@ export default function Nav() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLang}
-            className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover:text-text-primary transition-colors"
+            className="flex items-center gap-1.5 p-3.5 text-[11px] font-semibold text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.changeLanguage}
           >
             <Globe size={15} />
@@ -157,7 +176,7 @@ export default function Nav() {
           </button>
           <button
             onClick={toggleDark}
-            className="p-3.5 rounded-md text-text-secondary hover:text-text-primary transition-colors"
+            className="p-3.5 rounded-md text-text-secondary hover-fine:text-text-primary transition-colors"
             aria-label={t.toggleDarkMode}
           >
             {dark ? <Sun size={17} /> : <Moon size={17} />}
@@ -178,7 +197,7 @@ export default function Nav() {
               key={href}
               href={href}
               className={`flex flex-col items-center gap-0.5 py-2 px-4 transition-colors ${
-                active ? 'text-accent-text' : 'text-text-secondary hover:text-accent-text'
+                active ? 'text-accent-text' : 'text-text-secondary hover-fine:text-accent-text'
               }`}
             >
               <Icon size={20} />

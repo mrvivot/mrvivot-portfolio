@@ -30,7 +30,7 @@ export default function BlogCard({ post, variant = "default" }: BlogCardProps) {
     <Link
       href={`/blog/${post.slug}`}
       aria-label={`${title} — ${post.category.join(", ")}`}
-      className="group block overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-accent"
+      className="group block overflow-hidden rounded-xl border border-border bg-surface transition-colors hover-fine:border-accent"
     >
       <div
         className={`relative overflow-hidden bg-surface ${

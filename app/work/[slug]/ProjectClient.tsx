@@ -77,7 +77,6 @@ export default function ProjectClient({
   const [unlocked, setUnlocked] = useState(false)
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
-  const [btnHover, setBtnHover] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   const sessionKey = `${project.slug}_unlocked`
@@ -154,15 +153,12 @@ export default function ProjectClient({
         )}
         <button
           onClick={handlePasswordSubmit}
-          onMouseEnter={() => setBtnHover(true)}
-          onMouseLeave={() => setBtnHover(false)}
-          className="text-white"
+          className="text-white bg-[var(--accent-fill)] hover-fine:bg-[var(--accent-fill-hover)]"
           style={{
             width: '100%',
             maxWidth: '280px',
             padding: '12px 28px',
             borderRadius: '999px',
-            backgroundColor: btnHover ? 'var(--accent-fill-hover)' : 'var(--accent-fill)',
             fontSize: '14px',
             fontWeight: 600,
             border: 'none',
@@ -174,7 +170,7 @@ export default function ProjectClient({
         </button>
         <Link
           href="/work"
-          className="text-text-secondary hover:text-text-primary transition-colors"
+          className="text-text-secondary hover-fine:text-text-primary transition-colors"
           style={{ fontSize: '14px', marginTop: '24px' }}
         >
           {t.backToWork}
@@ -446,7 +442,7 @@ export default function ProjectClient({
           </h2>
           <Link href={`/work/${project.next}`} className="group inline-flex flex-col">
             <span
-              className="text-text-primary group-hover:text-accent-text transition-colors"
+              className="text-text-primary [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-accent-text transition-colors"
               style={{ fontSize: 'clamp(28px, 4vw, 44px)', fontWeight: 700 }}
             >
               {nextTitle}

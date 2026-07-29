@@ -82,7 +82,7 @@ export default function WorkPageClient({ projects }: Props) {
           >
             <Link
               href={`/work/${project.slug}`}
-              className="group block rounded-2xl overflow-hidden border border-transparent hover:border-accent transition-all duration-300"
+              className="group block rounded-2xl overflow-hidden border border-transparent hover-fine:border-accent transition-all duration-300"
               style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.03)' }}
             >
               <div className="relative overflow-hidden" style={{ aspectRatio: '16/9' }}>
