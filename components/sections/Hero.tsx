@@ -85,27 +85,17 @@ export default function Hero() {
           {t.greeting}
         </motion.p>
 
-        <motion.div
-          className="flex flex-wrap gap-2 mt-3 md:mt-2"
+        <motion.p
+          className="text-text-secondary uppercase mt-3 md:mt-2"
+          style={{
+            fontSize: '11px',
+            fontWeight: 500,
+            letterSpacing: '0.12em',
+          }}
           {...fadeUp(0.2)}
         >
-          {t.pills.map((pill) => (
-            <span
-              key={pill}
-              className="text-text-secondary uppercase"
-              style={{
-                fontSize: '11px',
-                fontWeight: 500,
-                letterSpacing: '0.12em',
-                padding: '4px 12px',
-                borderRadius: '999px',
-                border: '1px solid var(--border)',
-              }}
-            >
-              {pill}
-            </span>
-          ))}
-        </motion.div>
+          {t.pills.join(' · ')}
+        </motion.p>
 
         <motion.h1
           className="font-bold text-text-primary mt-8 md:mt-6"
