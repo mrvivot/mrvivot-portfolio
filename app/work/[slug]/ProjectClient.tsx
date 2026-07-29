@@ -408,7 +408,7 @@ export default function ProjectClient({
               <h3 className="text-text-primary" style={{ fontSize: '20px', fontWeight: 600, marginBottom: '12px' }}>
                 {lang === 'es' ? phase.titleEs : phase.titleEn}
               </h3>
-              <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8, maxWidth: '680px' }}>
+              <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8, maxWidth: '680px', whiteSpace: 'pre-line' }}>
                 {lang === 'es' ? phase.descEs : phase.descEn}
               </p>
               <div
