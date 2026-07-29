@@ -14,8 +14,22 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "mrvivot — Portfolio",
-  description: "Portfolio profesional",
+  metadataBase: new URL("https://www.mrvivot.com"),
+  title: "Manuel Rojo Vivot — Product & UX Designer",
+  description:
+    "Diseño experiencias digitales que conectan usuarios con negocios reales.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    siteName: "Manuel Rojo Vivot",
+    locale: "es_AR",
+    type: "website",
+    images: [{ url: "/images/about-photo.jpg", width: 1200, height: 1200 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

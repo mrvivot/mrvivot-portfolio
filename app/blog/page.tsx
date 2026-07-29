@@ -4,6 +4,9 @@ import BlogCard from "@/components/sections/BlogCard";
 export const metadata = {
   title: "Blog | Manuel Rojo Vivot",
   description: "Notas sobre UX/UI, producto, filosofía y docencia.",
+  alternates: {
+    canonical: "/blog",
+  },
 };
 
 export default function BlogPage() {

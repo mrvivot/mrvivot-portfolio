@@ -8,6 +8,8 @@ import { useTheme } from '@/lib/ThemeContext'
 
 interface Project {
   slug: string
+  title?: string
+  titleEn?: string
   client?: string
   category?: string
   categoryEn?: string
@@ -81,7 +83,7 @@ export default function Portfolio({ projects }: Props) {
               {project.coverImage ? (
                 <Image
                   src={project.coverImage}
-                  alt={project.client ?? ''}
+                  alt={lang === 'es' ? (project.title ?? project.client ?? '') : (project.titleEn ?? project.title ?? project.client ?? '')}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"

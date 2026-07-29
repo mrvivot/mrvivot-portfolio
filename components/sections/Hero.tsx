@@ -1,6 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowDown } from 'lucide-react'
 import { useLanguage } from '@/lib/LanguageContext'
@@ -36,40 +35,24 @@ export default function Hero() {
   const blobOpacity1 = dark ? 0.32 : 0.26
   const blobOpacity2 = dark ? 0.24 : 0.19
 
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check, { passive: true })
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
   return (
     <section
-      className="relative min-h-screen flex flex-col justify-normal overflow-hidden px-6 md:px-12"
-      style={{ paddingTop: isMobile ? '18vh' : '25vh' }}
+      className="relative min-h-screen flex flex-col justify-normal overflow-hidden px-6 md:px-12 pt-[18vh] md:pt-[25vh]"
     >
 
       {/* ── Blobs de fondo ── */}
       <motion.div
-        className="absolute top-[-40px] right-[-40px] rounded-full pointer-events-none"
+        className="absolute top-[-40px] right-[-40px] rounded-full pointer-events-none w-[280px] h-[280px] blur-[80px] md:w-[560px] md:h-[560px] md:blur-[120px]"
         style={{
-          width: isMobile ? 280 : 560,
-          height: isMobile ? 280 : 560,
           backgroundColor: `rgba(45, 204, 143, ${blobOpacity1})`,
-          filter: isMobile ? 'blur(80px)' : 'blur(120px)',
         }}
         animate={prefersReducedMotion ? undefined : { x: [0, 60, 0], y: [0, -60, 0] }}
         transition={{ duration: 6, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-[40px] left-[40px] rounded-full pointer-events-none"
+        className="absolute bottom-[40px] left-[40px] rounded-full pointer-events-none w-[180px] h-[180px] blur-[80px] md:w-[360px] md:h-[360px] md:blur-[120px]"
         style={{
-          width: isMobile ? 180 : 360,
-          height: isMobile ? 180 : 360,
           backgroundColor: `rgba(45, 204, 143, ${blobOpacity2})`,
-          filter: isMobile ? 'blur(80px)' : 'blur(120px)',
         }}
         animate={prefersReducedMotion ? undefined : { x: [0, -60, 0], y: [0, 60, 0] }}
         transition={{ duration: 8, repeat: Infinity, repeatType: 'mirror', ease: 'easeInOut' }}

@@ -18,6 +18,9 @@ export async function generateMetadata({
     return {
       title: `${post.title.es} | Manuel Rojo Vivot`,
       description: post.description.es,
+      alternates: {
+        canonical: `/blog/${post.slug}`,
+      },
       openGraph: {
         title: post.title.es,
         description: post.description.es,
