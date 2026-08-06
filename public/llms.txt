@@ -1,0 +1,30 @@
+# Manuel Rojo Vivot
+
+> Diseño experiencias digitales que conectan usuarios con negocios reales. Combino diseño de producto con una mirada analítica formada en filosofía: investigo, valido y construyo.
+
+Además de diseñar, enseño UX/UI y gestión de productos digitales. Esa doble práctica, hacer y explicar, me obliga a tener siempre claro el porqué de cada decisión.
+
+## Páginas principales
+
+- [Inicio](https://www.mrvivot.com/): Presentación, proyectos destacados y contacto.
+- [Work](https://www.mrvivot.com/work): Grilla completa de proyectos.
+- [Blog](https://www.mrvivot.com/blog): Reflexiones cortas en primera persona sobre UX, diseño y docencia.
+
+## Casos de estudio
+
+- [Reconstruir BRVSCU desde cero, en dos etapas](https://www.mrvivot.com/work/brvscu): Reconstrucción end-to-end del sitio de un estudio jurídico, de WordPress inmantenible a un build propio.
+- [Rediseño del e-commerce para convertir visitas en ventas](https://www.mrvivot.com/work/carbon-los-lenos): Rediseño de landing page y e-commerce para mejorar la experiencia de compra.
+- [Cómo eliminamos el cuello de botella en el alta de negocios](https://www.mrvivot.com/work/vgo-alta): Diseño del flujo de alta de nuevos negocios en la plataforma.
+- [De planilla a tarjetas: rediseño del admin de negocios](https://www.mrvivot.com/work/vgo-admin): Rediseño del panel de administración con foco en usabilidad, en uso activo en producción.
+- [Investigación que cambió el rumbo del producto antes de construirlo](https://www.mrvivot.com/work/informental): Definición de perfiles de usuario para una plataforma de salud mental.
+- [De Framer a Next.js: construir mi propio portfolio con IA](https://www.mrvivot.com/work/portfolio-ia): Diseño y desarrollo de este mismo portfolio con IA generativa.
+
+## Posts del blog
+
+- [¿Qué tan obvio es lo obvio?](https://www.mrvivot.com/blog/que-tan-obvio-es-lo-obvio): Por qué cuesta salir de la respuesta obvia al diseñar, y qué revela la etimología de "obvio" y "oportunidad".
+- [Instrucciones para tocar el timbre](https://www.mrvivot.com/blog/instrucciones-para-tocar-el-timbre): Un cartel con instrucciones para tocar un timbre revela que la complejidad de un sistema nunca desaparece, solo se transfiere.
+
+## Otros
+
+- [CV](https://www.mrvivot.com/cv_manuel_rojo_vivot_es.pdf): Currículum en español.
+- [LinkedIn](https://linkedin.com/in/mrvivot): Perfil profesional.

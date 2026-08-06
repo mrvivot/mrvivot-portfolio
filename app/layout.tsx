@@ -32,6 +32,18 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Manuel Rojo Vivot",
+  jobTitle: "Product & UX Designer",
+  url: "https://www.mrvivot.com",
+  image: "https://www.mrvivot.com/images/about-photo.jpg",
+  description:
+    "Combino diseño de producto con una mirada analítica formada en filosofía. Investigo, valido y construyo, sin perder de vista que cada decisión de diseño tiene que sostenerse con criterio y no solo con estética.",
+  sameAs: ["https://linkedin.com/in/mrvivot"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,6 +56,10 @@ export default function RootLayout({
       className={`${plusJakartaSans.variable} h-full antialiased`}
     >
       <body className="font-sans bg-background text-text-primary min-h-full flex flex-col pt-14 md:pt-0 pb-16 md:pb-0">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <Script id="theme-init" strategy="beforeInteractive">
           {`(function () {
     try {
