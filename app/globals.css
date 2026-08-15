@@ -49,6 +49,7 @@
   line-height: 1.8;
   color: var(--text-primary);
   margin-bottom: 1.25em;
+  overflow-wrap: anywhere;
 }
 
 .mdx-prose h2 {
@@ -80,6 +81,7 @@
   line-height: 1.8;
   color: var(--text-primary);
   margin-bottom: 0.4em;
+  overflow-wrap: anywhere;
 }
 
 .mdx-prose strong {
