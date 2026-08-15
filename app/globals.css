@@ -52,6 +52,10 @@
   overflow-wrap: anywhere;
 }
 
+.mdx-prose img {
+  border-radius: 16px;
+}
+
 .mdx-prose h2 {
   font-size: 22px;
   font-weight: 600;
