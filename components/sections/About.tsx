@@ -7,13 +7,15 @@ import { useLanguage } from '@/lib/LanguageContext'
 const content = {
   es: {
     title: 'Sobre mí',
-    p1: 'Combino diseño de producto con una mirada analítica formada en filosofía. Investigo, valido y construyo, sin perder de vista que cada decisión de diseño tiene que sostenerse con criterio y no solo con estética.',
-    p2: 'Además de diseñar, enseño UX/UI y gestión de productos digitales. Esa doble práctica, hacer y explicar, me obliga a tener siempre claro el porqué de cada decisión.',
+    p1: 'Combino diseño de producto con una mirada analítica formada en Filosofía: investigo, valido y construyo, sin perder de vista que cada decisión tiene que sostenerse con criterio, no solo con estética.',
+    p2: 'Integro IA generativa en todo el proceso (research, prototipado, código) para acortar la distancia entre una decisión bien fundamentada y un producto real. Este mismo portfolio está construido así, con Claude Code como copiloto de desarrollo.',
+    p3: 'Además, enseño hace más de una década: primero Filosofía, hoy UX/UI y gestión de productos digitales en Digital House / Universidad de San Andrés. Esa doble práctica, hacer y explicar, me obliga a tener siempre claro el porqué de cada decisión.',
   },
   en: {
     title: 'About',
     p1: 'I combine product design with an analytical mindset shaped by philosophy. I research, validate, and build, without losing sight of the fact that every design decision needs to hold up on criteria and not just aesthetics.',
     p2: 'Beyond designing, I teach UX/UI and digital product management. That dual practice, doing and explaining, keeps me honest about the why behind every decision.',
+    p3: '',
   },
 }
 
@@ -77,6 +79,11 @@ export default function About() {
           <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8 }}>
             {t.p2}
           </p>
+          {t.p3 && (
+            <p className="text-text-primary" style={{ fontSize: '17px', lineHeight: 1.8 }}>
+              {t.p3}
+            </p>
+          )}
         </motion.div>
 
       </div>
