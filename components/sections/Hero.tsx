@@ -10,7 +10,7 @@ const content = {
   es: {
     greeting: 'Hola, soy Manuel Rojo Vivot.',
     pills: ['UX/UI', 'Product Design', 'Front-end'],
-    headline: 'Diseño experiencias digitales que conectan usuarios con negocios reales.',
+    headline: 'Diseño con criterio. Ejecuto con IA generativa.',
     scrollToWork: 'Ir a proyectos',
   },
   en: {
