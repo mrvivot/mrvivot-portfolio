@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.mrvivot.com"),
   title: "Manuel Rojo Vivot — Product & UX Designer",
   description:
-    "Diseño experiencias digitales que conectan usuarios con negocios reales.",
+    "UX/UI & Product Designer en Argentina. Diseño con criterio, ejecuto con IA generativa.",
   alternates: {
     canonical: "/",
   },
