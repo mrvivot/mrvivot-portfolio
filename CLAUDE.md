@@ -28,21 +28,32 @@ Deploy en Vercel, dominio mrvivot.com.
 - Analytics: Microsoft Clarity instalado (ID: xfnpppw2mh)
 
 ## Páginas existentes
-- / (home): Hero, Portfolio (3 cards), About, Contacto, Footer
-- /work: grilla de 6 proyectos (2 columnas desktop, 1 mobile)
+- / (home): Hero, Portfolio (3 cards vía homeOrder), About, Contacto, Footer
+- /work: grilla de 7 proyectos (2 columnas desktop, 1 mobile)
 - /work/[slug]: template dinámico desde MDX (ProjectClient.tsx)
 - /work/gsk: protegido con password
+- /blog: listado de posts (BlogCard)
+- /blog/[slug]: template dinámico desde MDX (BlogPostClient.tsx)
 
 ## Proyectos en content/projects/
-- carbon-los-lenos.mdx (order: 1)
-- portfolio-ia.mdx (order: 2)
-- gsk.mdx (order: 3, password: true)
-- vgo-alta.mdx (order: 4)
+- brvscu.mdx (order: 0, homeOrder: 1)
+- portfolio-ia.mdx (order: 1, homeOrder: 2)
+- vgo-alta.mdx (order: 2, homeOrder: 3)
+- informental.mdx (order: 3)
+- carbon-los-lenos.mdx (order: 4)
 - vgo-admin.mdx (order: 5)
-- informental.mdx (order: 6)
+- gsk.mdx (order: 6, password: true)
+
+`order` define el orden en /work; `homeOrder` (solo en 3 de los 7) define
+cuáles aparecen como cards en el home y en qué orden.
+
+## Posts en content/blog/
+- instrucciones-para-tocar-el-timbre.mdx (2026-07-09)
+- que-tan-obvio-es-lo-obvio.mdx (2026-07-23)
+- rick-rubin-tiene-razon.mdx (2026-08-09)
+- aunque-a-nadie-ya-le-importe.mdx (2026-08-14)
 
 ## Pendiente próxima sesión
-- Agregar sección Blog (/blog)
 - Agregar sección Juegos (/games) — diferido
 - Página /about extendida — diferido
 
@@ -55,6 +66,35 @@ Deploy en Vercel, dominio mrvivot.com.
   acompaña a un elemento principal ya visible.
 - Antes de dar por terminado cualquier componente nuevo, verificar
   que ningún título o label de sección quede en text-secondary.
+
+## Decisiones técnicas (setiembre 2026)
+
+### og:image dinámica
+- app/opengraph-image.tsx genera la imagen para compartir (1200x630) con
+  ImageResponse en vez de servir un archivo estático. La imagen que se
+  usaba antes (about-photo.jpg) tenía extensión .jpg pero contenido PNG
+  real, dimensiones que no coincidían con lo declarado en metadata, y
+  pesaba 1.8MB — por eso WhatsApp/LinkedIn/Slack no mostraban preview al
+  compartir el link. Generarla dinámicamente evita depender de que el
+  archivo fuente tenga el formato/peso/recorte correctos.
+- app/page.tsx (y cualquier page) NO debe declarar su propio
+  metadata.openGraph parcial: Next.js no hace deep-merge de openGraph
+  entre layout y page, así que un openGraph incompleto en el page pisa
+  entero al del layout — incluida la imagen. Si un page necesita metadata
+  propia, declarar el objeto openGraph completo o no declararlo y heredar
+  el del layout.
+
+### Performance / LCP
+- El H1 del Hero (candidato a LCP en mobile) no debe animar opacity: si
+  nace en opacity:0 y anima a 1 vía Framer Motion, el paint del elemento
+  queda bloqueado hasta que React hidrata y corre la animación, lo que
+  empeora el LCP en conexiones lentas. Para la sensación de entrada, animar
+  solo transform (translateY) en el elemento de LCP, nunca opacity.
+- Las imágenes fuera del above-the-fold (ej. la foto de About) no deben
+  llevar loading="eager" ni fetchPriority="high": eso les roba prioridad de
+  red al contenido above-the-fold en conexiones lentas sin necesidad, ya
+  que no son visibles al cargar la página. Dejar el comportamiento lazy por
+  default de next/image.
 
 ## Convenciones de trabajo
 - Cambios incrementales, uno o dos por vez
