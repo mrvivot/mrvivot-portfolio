@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Manuel Rojo Vivot",
     locale: "es_AR",
     type: "website",
-    images: [{ url: "/images/about-photo.jpg", width: 1200, height: 1200 }],
+    // Sin `images`: Next.js la completa automáticamente con app/opengraph-image.tsx.
   },
   twitter: {
     card: "summary_large_image",

@@ -92,6 +92,15 @@
         ],
         "createdAt": "2026-07-27T01:30:36.591Z",
         "reason": "User confirmed: 4px intentional for inline code, added as rounded.xs"
+      },
+      {
+        "rule": "overused-font",
+        "value": "plus jakarta sans",
+        "files": [
+          "app/opengraph-image.tsx"
+        ],
+        "createdAt": "2026-09-12T02:54:49.988Z",
+        "reason": "User confirmed: tipografía única del sitio por CLAUDE.md (Plus Jakarta Sans exclusivamente), coherente con el resto del proyecto"
       }
     ]
   }
