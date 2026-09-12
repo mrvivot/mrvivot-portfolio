@@ -58,8 +58,6 @@ export default function About() {
               fill
               sizes="(min-width: 768px) 40vw, 280px"
               className="object-cover"
-              loading="eager"
-              fetchPriority="high"
             />
           </div>
         </motion.div>
