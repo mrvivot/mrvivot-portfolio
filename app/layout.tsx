@@ -40,7 +40,7 @@ const personJsonLd = {
   url: "https://www.mrvivot.com",
   image: "https://www.mrvivot.com/images/about-photo.jpg",
   description:
-    "Combino diseño de producto con una mirada analítica formada en filosofía. Investigo, valido y construyo, sin perder de vista que cada decisión de diseño tiene que sostenerse con criterio y no solo con estética.",
+    "Combino diseño de producto con una mirada analítica formada en Filosofía: investigo, valido y construyo con criterio, integrando IA generativa en todo el proceso — research, prototipado y código. Enseño hace más de una década, hoy UX/UI y gestión de productos digitales en Digital House y la Universidad de San Andrés.",
   sameAs: ["https://linkedin.com/in/mrvivot"],
 };
 
