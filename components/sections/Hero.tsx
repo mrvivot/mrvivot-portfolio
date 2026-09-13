@@ -10,7 +10,7 @@ const content = {
   es: {
     greeting: 'Hola, soy Manuel Rojo Vivot.',
     pills: ['UX/UI', 'Product Design', 'Front-end'],
-    headline: 'Diseño con criterio. Ejecuto con IA generativa.',
+    headline: 'Diseño con criterio,\nejecuto con IA generativa.',
     scrollToWork: 'Ir a proyectos',
   },
   en: {
@@ -91,6 +91,7 @@ export default function Hero() {
             maxWidth: '100%',
             wordBreak: 'break-word',
             overflowWrap: 'break-word',
+            whiteSpace: 'pre-line',
           }}
           initial={{ opacity: 1, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
