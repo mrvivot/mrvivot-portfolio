@@ -13,9 +13,9 @@ const content = {
   },
   en: {
     title: 'About',
-    p1: 'I combine product design with an analytical mindset shaped by philosophy. I research, validate, and build, without losing sight of the fact that every design decision needs to hold up on criteria and not just aesthetics.',
-    p2: 'Beyond designing, I teach UX/UI and digital product management. That dual practice, doing and explaining, keeps me honest about the why behind every decision.',
-    p3: '',
+    p1: 'I combine product design with an analytical mindset shaped by philosophy: I research, validate, and build, always making sure each decision holds up on judgment, not just aesthetics.',
+    p2: 'I bring generative AI into the whole process — research, prototyping, code — to close the gap between a well-reasoned decision and a real product. This very portfolio was built that way, with Claude Code as a development copilot.',
+    p3: "I've also been teaching for over a decade: philosophy first, now UX/UI and digital product management at Digital House and Universidad de San Andrés. That dual practice — doing and explaining — keeps me honest about the why behind every decision.",
   },
 }
 

@@ -16,7 +16,7 @@ const content = {
   en: {
     greeting: "Hi, I'm Manuel Rojo Vivot.",
     pills: ['UX/UI', 'Product Design', 'Front-end'],
-    headline: 'Designing digital experiences that connect people with real business goals.',
+    headline: 'I design with judgment,\nI build with generative AI.',
     scrollToWork: 'Go to projects',
   },
 }
